@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 732560588}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1211720482129749874}
+        m_TargetAssemblyTypeName: MenuUIManager, Assembly-CSharp
+        m_MethodName: OnStartButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &765348726
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +581,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1814251608}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1211720482129749874}
+        m_TargetAssemblyTypeName: MenuUIManager, Assembly-CSharp
+        m_MethodName: OnExitButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &211398340626335538
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4215892237447122368}
+  - component: {fileID: 1211720482129749874}
   m_Layer: 5
   m_Name: '[MAIN MENU UI]'
   m_TagString: Untagged
@@ -603,6 +628,19 @@ Transform:
   - {fileID: 2292248862863740562}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1211720482129749874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211398340626335538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ffc6384d95f34b4f8c6fc68999a7d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiConfigs: []
 --- !u!1 &6774515233642117437
 GameObject:
   m_ObjectHideFlags: 0
