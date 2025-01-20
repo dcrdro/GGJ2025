@@ -62,4 +62,12 @@ public class AudioManager : Singleton<AudioManager>
             Debug.LogWarning($"No FMOD event configured for {soundEvent}");
         }
     }
+
+#if UNITY_EDITOR
+    [ContextMenu("Play1")]
+    public void Play1()
+    {
+        PlaySound(SoundEvent._test1);
+    }
+#endif
 }
