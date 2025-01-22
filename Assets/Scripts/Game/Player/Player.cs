@@ -97,7 +97,7 @@ namespace Game.Player
 
         private void UpdateAnimations()
         {
-            animator.SetBool(IsMoving, rb.linearVelocity.x > 0.1f);
+            animator.SetBool(IsMoving, Mathf.Abs(rb.linearVelocity.x) > 0.001f);
             animator.SetBool(IsJumping, !isGrounded);
         }
     }
