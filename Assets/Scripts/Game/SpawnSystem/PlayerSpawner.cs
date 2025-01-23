@@ -1,3 +1,5 @@
+using Game.Player;
+using SceneManagement;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

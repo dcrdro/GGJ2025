@@ -105,6 +105,12 @@ namespace SceneManagement
 			}
 		}
 
+		public static void ReloadScene()
+		{
+			var c = new SceneContext() { sceneInfo = new SerializedSceneInfo() { sceneName = SceneManager.GetActiveScene().name } };
+			LoadScene(c);
+		}
+
 		private async UniTask UnloadCurrentScene()
 		{
 			if (_currentSceneController != null)
