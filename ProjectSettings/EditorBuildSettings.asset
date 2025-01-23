@@ -6,11 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 3106ce32fcf0dce47a7c7d09bc507ddd
+    path: Assets/Scenes/SplashScreen.unity
+    guid: eee4992bffee7ec419e366301b0583f5
   - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Intro.unity
+    guid: 78afd9bb2b5614645a2ff0d4b70961f8
+  - enabled: 1
+    path: Assets/Scenes/HubScene.unity
+    guid: c828a641330999a46bc763fe1dcf3af0
+  - enabled: 1
+    path: Assets/Scenes/PastRoom.unity
+    guid: 8c4f1d521b231e646ace99fccecb5084
+  - enabled: 1
+    path: Assets/Scenes/PresentRoom.unity
+    guid: ae44d2d09f4fbf847977907551421e8e
+  - enabled: 1
+    path: Assets/Scenes/FutureRoom.unity
+    guid: 8817d0b002f7dd3478a79d3cd05f6e45
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 99f9c9493070a9d4c979a8fec7c5a8d3, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

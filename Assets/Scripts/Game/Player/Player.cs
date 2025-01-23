@@ -11,6 +11,7 @@ namespace Game.Player
             TakeItem,
             Interact,
             UseItem,
+            Teleport,
         }
         
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
