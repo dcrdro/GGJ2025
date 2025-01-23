@@ -2413,7 +2413,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44c5a32298f425baec6b60bcc75e477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entities: []
+  entities:
+  - {fileID: 1917732739}
+  - {fileID: 1926388022}
+  - {fileID: 481915369}
 --- !u!4 &2067220462
 Transform:
   m_ObjectHideFlags: 0

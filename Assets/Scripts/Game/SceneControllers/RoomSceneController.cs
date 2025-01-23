@@ -4,6 +4,7 @@ using Game.Player;
 using SceneManagement;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEditor.FilePathAttribute;
 
 [RequireComponent(typeof(EntityStateSystem))]
 [RequireComponent(typeof(PlayerSpawner))]
@@ -15,7 +16,10 @@ public abstract class RoomSceneController : BaseSceneController
 	[SerializeField] private PlayerSpawner playerSpawner;
 	[SerializeField] private EntityStateSystem itemStateSystem;
 
-	private void OnValidate()
+	SceneContext sceneContext;
+
+
+    private void OnValidate()
 	{
 		itemStateSystem = GetComponent<EntityStateSystem>();
 		playerSpawner = GetComponent<PlayerSpawner>();
@@ -24,6 +28,8 @@ public abstract class RoomSceneController : BaseSceneController
 
 	protected async UniTask LoadRoom(SceneContext sceneContext, IProgress<LoadingProgress> progress)
 	{
+		this.sceneContext = sceneContext;
+
 		progress.Report(new LoadingProgress() { progress = 0.3f });
 		await UniTask.Yield();
 		OnLoad.Invoke();

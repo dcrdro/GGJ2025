@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using SceneManagement;
+using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Game.Player
 {
@@ -100,6 +103,19 @@ namespace Game.Player
         {
             animator.SetBool(IsMoving, Mathf.Abs(rb.linearVelocity.x) > 0.001f);
             animator.SetBool(IsJumping, !isGrounded);
+        }
+
+        public void TakeDamage()
+        {
+            animator.SetTrigger("Die");
+            Restart();
+        }
+
+        private async UniTask Restart()
+        {
+            await UniTask.Delay(1000);
+            SceneLoader.ReloadScene();
+
         }
     }
 }
