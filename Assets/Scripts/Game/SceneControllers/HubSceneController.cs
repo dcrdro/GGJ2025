@@ -1,0 +1,56 @@
+using System;
+using Cysharp.Threading.Tasks;
+using Game.Player;
+using SceneManagement;
+using UnityEngine;
+
+namespace SceneController
+{
+	public class HubSceneController : BaseSceneController
+	{
+		[SerializeField] private EntityStateSystem entityStateSystem;
+		[SerializeField] private VariableSystem variableSystem;
+		[SerializeField] private PlayerSpawner playerSpawner;
+		[SerializeField] private Player playerController;
+
+		private bool alreadyEntered;
+
+#if UNITY_EDITOR
+		private void OnValidate()
+		{
+			entityStateSystem = GetComponent<EntityStateSystem>();
+		}
+#endif
+
+		private void Awake()
+		{
+			Application.targetFrameRate = 60;
+		}
+
+		private async void Start()
+		{
+			await UniTask.Delay(500);
+			if (alreadyEntered)
+				return;
+			var context = new HubSceneContext();
+			context.spawnPointName = "Default";
+			var progress = new StudProgress();
+			await Load(context, progress);
+		}
+
+
+		public override async UniTask Load(SceneContext sceneContext, IProgress<LoadingProgress> progress)
+		{
+         	if (sceneContext is HubSceneContext hubSceneContext)
+         	{
+         		var location = playerSpawner.GetSpawnLocation(hubSceneContext.spawnPointName);
+         		playerController.transform.position = location.position;
+         		playerController.transform.forward = location.forward;
+         	}
+            progress.Report(new LoadingProgress() { progress = 0.5f });
+            await UniTask.Yield();
+            entityStateSystem.Load();
+            progress.Report(new LoadingProgress() { progress = 1f });
+		}
+	}
+}
