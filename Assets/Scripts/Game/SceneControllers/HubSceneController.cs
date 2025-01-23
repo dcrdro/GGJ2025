@@ -32,10 +32,9 @@ namespace SceneController
 			await UniTask.Delay(500);
 			if (alreadyEntered)
 				return;
-			var context = new HubSceneContext();
-			context.spawnPointName = "Default";
+		
 			var progress = new StudProgress();
-			await Load(context, progress);
+			await Load(null, progress);
 		}
 
 

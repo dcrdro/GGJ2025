@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5168413010315402099}
   - component: {fileID: 5168413010315402100}
   - component: {fileID: -5551019101365998932}
-  - component: {fileID: 2896149298414412912}
   m_Layer: 0
   m_Name: World Camera
   m_TagString: MainCamera
@@ -129,17 +128,3 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &2896149298414412912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5168413010315402102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nonRigidbodyVelocity: 0
-  attenuationObject: {fileID: 0}
