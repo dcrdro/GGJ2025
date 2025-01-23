@@ -13,7 +13,7 @@ public class TakeInteraction : Interaction
 
 	public override void Interact(VariableSystem variableSystem)
 	{
-		variableSystem.SetVariable(entity.info.itemName + Entity.VisibleSuffix, "false", true);
+		variableSystem.SetVariable(entity.info.variableName + Entity.VisibleSuffix, "false", true);
 		variableSystem.Inventory.AddItem(entity.info);
 		onInteract.Invoke();
 		entity.gameObject.SetActive(false);

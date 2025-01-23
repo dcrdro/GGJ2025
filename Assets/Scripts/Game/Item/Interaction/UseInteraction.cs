@@ -37,7 +37,7 @@ public class UseInteraction : Interaction
 		if (!condition.Satisfied()) 
 			return;
 		
-		variableSystem.SetVariable(usedEntity.itemName+"_ON_"+entity.info.itemName + Entity.UsedSuffix, "true", true);
+		variableSystem.SetVariable(usedEntity.variableName+"_ON_"+entity.info.variableName + Entity.UsedSuffix, "true", true);
 		if (removeAfterUse)
 		{
 			variableSystem.Inventory.RemoveItem(usedEntity);
@@ -61,7 +61,7 @@ public class UseInteraction : Interaction
 
 	public override void LoadState(VariableSystem variableSystem)
 	{
-		var variable = variableSystem.GetVariable(usedEntity.itemName+"_ON_"+entity.info.itemName + Entity.UsedSuffix);
+		var variable = variableSystem.GetVariable(usedEntity.variableName+"_ON_"+entity.info.variableName + Entity.UsedSuffix);
 		if (variable != null && variable.Value == "true")
 		{
 			onUseItem.Invoke();

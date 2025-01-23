@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(EntityInfo entityInfo)
     {
-        _variableSystem.SetVariable(entityInfo.itemName + Entity.TakenSuffix, "true", true);
+        _variableSystem.SetVariable(entityInfo.variableName + Entity.TakenSuffix, "true", true);
         foreach (ItemSlot slot in slots)
         {
             if (slot.Occupied) 
@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour
             if (slot.Occupied && slot.EntityInfo == entityInfo)
             {
                 slot.Occupied = false;
-                _variableSystem.SetVariable(entityInfo.itemName + Entity.TakenSuffix, "false", true);
+                _variableSystem.SetVariable(entityInfo.variableName + Entity.TakenSuffix, "false", true);
                 slot.SetItem(null);
                 break;
             }

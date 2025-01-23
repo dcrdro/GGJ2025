@@ -25,7 +25,7 @@ namespace Game.Core
 
 		public void LoadState(VariableSystem variableSystem)
 		{
-			GameVar variable = variableSystem.GetVariable(info.itemName + VisibleSuffix);
+			GameVar variable = variableSystem.GetVariable(info.variableName + VisibleSuffix);
 			if (variable != null)
 			{
 				gameObject.SetActive(variable.Value == "true");
