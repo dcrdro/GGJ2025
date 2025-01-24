@@ -16,6 +16,7 @@ namespace Game.Player
             Interact,
             UseItem,
             Teleport,
+            Damage,
         }
         
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
@@ -31,6 +32,7 @@ namespace Game.Player
         public float jumpForce = 10f;
 
         public IObservableVar<State> CurrentState => _state;
+        public event Action OnJump;
         public bool IsGrounded => isGrounded;
 
         [Header("Ground Check")] 
@@ -166,6 +168,7 @@ namespace Game.Player
             if (Input.GetButtonDown("Jump"))
             {
                 rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
+                OnJump?.Invoke();
             }
         }
 

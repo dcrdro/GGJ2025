@@ -27,16 +27,23 @@ namespace Game.Player
 		{
 			_player = GetComponent<Player>();
 			_player.CurrentState.OnValueChanged += HandlePlayerState;
+
+			_player.OnJump += HandleJump;
 			
 			footstepInstance.set3DAttributes(transform.position.To3DAttributes());
 			jumpInstance.set3DAttributes(transform.position.To3DAttributes());
-			
-			//_footsteps.setParameterByName("footsteps", sceneFootstepsValue);
+		}
+		
+		private void Update()
+		{
+			UpdateSounds();
 		}
 
 		private void OnDestroy()
 		{
 			_player.CurrentState.OnValueChanged -= HandlePlayerState;
+			
+			_player.OnJump -= HandleJump;
 			footstepInstance.stop(STOP_MODE.IMMEDIATE);
 			footstepInstance.release();
 			footstepInstance.clearHandle();
@@ -49,36 +56,37 @@ namespace Game.Player
 
 		private void HandlePlayerState(Player.State prev, Player.State current)
 		{
-
+			
 		}
 
-		private void Update()
+		private void HandleJump()
 		{
-			UpdateSounds();
+			jumpInstance.getPlaybackState(out PLAYBACK_STATE jumpPlaybackState);
+			if (jumpPlaybackState == PLAYBACK_STATE.PLAYING)
+			{
+				jumpInstance.stop(STOP_MODE.IMMEDIATE);
+			}
+			jumpInstance.set3DAttributes(transform.position.To3DAttributes());
+			jumpInstance.start();
 		}
 
 		private void UpdateSounds()
 		{
-			footstepInstance.getPlaybackState(out PLAYBACK_STATE playbackState);
-			jumpInstance.getPlaybackState(out PLAYBACK_STATE jumpPlaybackState);
-			if (!_player.IsGrounded && jumpPlaybackState == PLAYBACK_STATE.STOPPED)
+			footstepInstance.getPlaybackState(out PLAYBACK_STATE footstepState);
+			
+			if (_player.CurrentState.Value == Player.State.Running)
 			{
-				jumpInstance.set3DAttributes(transform.position.To3DAttributes());
-				jumpInstance.start();
+				if (footstepState == PLAYBACK_STATE.STOPPED && _player.IsGrounded)
+				{
+					footstepInstance.set3DAttributes(transform.position.To3DAttributes());
+					footstepInstance.start();
+					Debug.Log("footstepInstance.start();");
+				}
 			}
-			else
-			{
-				jumpInstance.stop(STOP_MODE.IMMEDIATE);
-			}
-			if (_player.CurrentState.Value == Player.State.Running && playbackState == PLAYBACK_STATE.STOPPED && _player.IsGrounded)
-			{
-				footstepInstance.set3DAttributes(transform.position.To3DAttributes());
-				//_footsteps.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));
-				footstepInstance.start();
-			}
-			else
+			else if (footstepState == PLAYBACK_STATE.PLAYING)
 			{
 				footstepInstance.stop(STOP_MODE.IMMEDIATE);
+				Debug.Log("footstepInstance.stop(STOP_MODE.IMMEDIATE);");
 			}
 		}
 	}
