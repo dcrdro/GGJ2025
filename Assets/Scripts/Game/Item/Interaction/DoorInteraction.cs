@@ -5,21 +5,22 @@ using UnityEngine;
 
 public class DoorInteraction : Interaction
 {
-	public override Player.InteractState InteractState
+	public override Player.State State
 	{
 		get 
 		{
 			if (openDoorCondition != null && !openDoorCondition.Satisfied())
 			{
-				return Player.InteractState.Idle;	
+				return Player.State.Idle;	
 			}
-			return Player.InteractState.Interact;
+			return provideState;
 		}
 	}
 	
 	public override bool Interactable { get; protected set; }
 	
 	[SerializeField] private BaseCondition openDoorCondition;
+	[SerializeField] private Player.State provideState = Player.State.Teleport;
 	//[SerializeField] private AutomaticDoor door;
 	
 	[SerializeField] private string exitPointName; 

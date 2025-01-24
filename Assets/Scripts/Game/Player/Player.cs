@@ -8,7 +8,7 @@ namespace Game.Player
 {
     public class Player : MonoBehaviour
     {
-        public enum InteractState
+        public enum State
         {
             Idle,
             Running,
@@ -30,6 +30,9 @@ namespace Game.Player
         [Header("Movement Settings")] public float moveSpeed = 5f;
         public float jumpForce = 10f;
 
+        public IObservableVar<State> CurrentState => _state;
+        public bool IsGrounded => isGrounded;
+
         [Header("Ground Check")] 
         [SerializeField] private Transform groundCheck;
         [SerializeField] private float groundCheckRadius = 0.2f;
@@ -43,14 +46,18 @@ namespace Game.Player
 
         [Header("Debug")] 
         [SerializeField] private float force; 
-        [SerializeField] private InteractState state = InteractState.Idle;
+        [SerializeField] private ObservableVar<State> _state;
         private Coroutine _interactCor;
         private Coroutine _jumpCor;
 
         private Rigidbody rb;
         private Animator animator;
         private bool isGrounded;
-        
+
+        private void Awake()
+        {
+            _state = new ObservableVar<State>(State.Idle);
+        }
 
         private void Start()
         {
@@ -66,11 +73,11 @@ namespace Game.Player
         
         private void Update()
         {
-            if (state == InteractState.Idle || state == InteractState.Running)
+            if (_state.Value == State.Idle || _state.Value == State.Running)
             {
                 HandleMovement();
                 HandleJump();
-                state = rb.linearVelocity.sqrMagnitude > 0.001f ? InteractState.Running : InteractState.Idle;
+                _state.Value = rb.linearVelocity.sqrMagnitude > 0.001f ? State.Running : State.Idle;
             }
             else
             {
@@ -79,7 +86,7 @@ namespace Game.Player
             UpdateAnimations();
         }
 
-        private void HandleInteractState(InteractState interactionState, float duration)
+        private void HandleInteractState(State interactionState, float duration)
         {
             if (_interactCor != null)
                 return;
@@ -87,34 +94,32 @@ namespace Game.Player
             _interactCor = StartCoroutine(InteractCoroutine(interactionState, duration));
         }
 
-        private IEnumerator InteractCoroutine(InteractState interactionState, float duration)
+        private IEnumerator InteractCoroutine(State interactionState, float duration)
         {
-            state = interactionState;
+            _state.Set(interactionState);
             switch (interactionState)
             {
-                case InteractState.Interact:
+                case State.Interact:
                     animator.SetTrigger(Interact);
                     break;
                 
-                case InteractState.TakeItem:
+                case State.TakeItem:
                     animator.SetTrigger(TakeItem);
                     break;
                 
-                case InteractState.UseItem:
+                case State.UseItem:
                     animator.SetTrigger(UseItem);
                     break;
                 
-                case InteractState.Teleport:
+                case State.Teleport:
                     animator.SetTrigger(Teleport);
                     break;
             }
             
             yield return new WaitForSeconds(duration);
             _interactCor = null;
-            state = InteractState.Idle;
+            _state.Set(State.Idle);
         }
-
-        
 
         private void HandleMovement()
         {

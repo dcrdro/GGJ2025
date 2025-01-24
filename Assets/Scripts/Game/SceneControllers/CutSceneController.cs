@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using SceneManagement;
 using UnityEngine;
 using UnityEngine.Events;
+using FMODUnity;
 
 namespace SceneController
 {
@@ -13,6 +14,7 @@ namespace SceneController
 		[SerializeField] private SerializedSceneInfo nextSceneInfo;
 		[SerializeField] private float waitSkipTimer = 3;
 		[SerializeField] private UnityEvent onLeaveScene;
+		[SerializeField] private StudioEventEmitter eventEmitter;
 
 		private bool _skip;
 		private bool _loadComplete;
@@ -20,7 +22,10 @@ namespace SceneController
 
 		private void Awake()
 		{
-			skipText.gameObject.SetActive(false);
+			if (skipText != null)
+			{
+				skipText.gameObject.SetActive(false);
+			}
 		}
 
 		private void Start()
@@ -50,11 +55,15 @@ namespace SceneController
 		private IEnumerator showSkipCutSceneCor()
 		{
 			yield return new WaitForSecondsRealtime(waitSkipTimer);
-			skipText.gameObject.SetActive(true);
+			if (skipText != null)
+			{
+				skipText.gameObject.SetActive(true);
+			}
 		}
 
 		public void LoadNextScene()
 		{
+			eventEmitter.Stop();
 			var context = new HubSceneContext();
 			context.sceneInfo = nextSceneInfo;
 			context.spawnPointName = "Default";

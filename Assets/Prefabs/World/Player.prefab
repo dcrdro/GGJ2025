@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 7539592429423950748}
   - component: {fileID: 3072824131946190139}
   - component: {fileID: 5908281633583991512}
+  - component: {fileID: 4780753439948276344}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -302,7 +303,6 @@ MonoBehaviour:
   rightProbe: {fileID: 8329436414282784629}
   interactProbe: {fileID: 6591633453662848685}
   force: 0
-  state: 0
 --- !u!54 &5908281633583991512
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -330,6 +330,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!114 &4780753439948276344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4347588980904223863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2825cc33e8e4aa09d20c5ac91e7471f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footsteps:
+    Guid:
+      Data1: -1208686611
+      Data2: 1176560889
+      Data3: -827470181
+      Data4: 1351713514
+    Path: event:/Character/Player Footsteps
+  jump:
+    Guid:
+      Data1: -1208686611
+      Data2: 1176560889
+      Data3: -827470181
+      Data4: 1351713514
+    Path: event:/Character/Player Footsteps
 --- !u!1 &5752677028569380375
 GameObject:
   m_ObjectHideFlags: 0

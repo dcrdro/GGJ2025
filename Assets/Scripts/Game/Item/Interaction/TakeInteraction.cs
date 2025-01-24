@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TakeInteraction : Interaction
 {
-	public override Player.InteractState InteractState => Player.InteractState.TakeItem;
+	public override Player.State State => Player.State.TakeItem;
 	public override bool Interactable { get; protected set; }
 
 	private void Awake()

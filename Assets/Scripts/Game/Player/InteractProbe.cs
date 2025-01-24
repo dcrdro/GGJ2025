@@ -5,7 +5,7 @@ namespace Game.Player
 {
     public class InteractProbe : MonoBehaviour
     {
-        public event Action<Player.InteractState, float> OnInteract;
+        public event Action<Player.State, float> OnInteract;
         private void OnTriggerEnter(Collider other)
         {
             //Debug.Log($"Interact enter {name} with {other.name}");
@@ -13,7 +13,7 @@ namespace Game.Player
             if (interaction != null && interaction.Interactable)
             {
                 interaction.Interact(VariableSystem.Instance);
-                OnInteract?.Invoke(interaction.InteractState, interaction.interactionTime);
+                OnInteract?.Invoke(interaction.State, interaction.interactionTime);
             }
         }
 		

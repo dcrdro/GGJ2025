@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RoomCompleteInteraction : Interaction
 {
-	public override Player.InteractState InteractState => Player.InteractState.Idle;
+	public override Player.State State => Player.State.Idle;
 	
 	public override bool Interactable { get; protected set; }
 	

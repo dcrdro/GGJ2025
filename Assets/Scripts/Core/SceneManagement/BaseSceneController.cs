@@ -7,6 +7,7 @@ namespace SceneManagement
     public abstract class BaseSceneController : MonoBehaviour
     {
         public abstract UniTask Load(SceneContext sceneContext, IProgress<LoadingProgress> progress);
+        public virtual void Reload() {}
         public virtual void OnLoadComplete() {}
 
         public virtual async UniTask Unload()
