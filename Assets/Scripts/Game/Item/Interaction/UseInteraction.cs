@@ -6,13 +6,13 @@ using UnityEngine.Events;
 
 public class UseInteraction : Interaction
 {
-	public override Player.InteractState InteractState
+	public override Player.State State
 	{
 		get
 		{
 			if (condition.Satisfied())
-				return Player.InteractState.Interact;
-			return Player.InteractState.UseItem;
+				return Player.State.Interact;
+			return Player.State.UseItem;
 		}
 	}
 

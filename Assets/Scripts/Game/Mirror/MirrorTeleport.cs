@@ -10,7 +10,7 @@ namespace Game.Mirror
     [SerializeField]
     private Transform teleportPoint;
 
-    public override Player.Player.InteractState InteractState => Player.Player.InteractState.Teleport;
+    public override Player.Player.State State => Player.Player.State.TeleportIn;
     public override bool Interactable { get; protected set; }
     public bool IsTeleportedTo { get; set; }
 

@@ -7,7 +7,7 @@ namespace Game.Mirror
     [SerializeField]
     private float delayBeforeKill;
 
-    public override Player.Player.InteractState InteractState => Player.Player.InteractState.Idle;
+    public override Player.Player.State State => Player.Player.State.Idle;
     public override bool Interactable { get; protected set; }
 
     private float currentTime;

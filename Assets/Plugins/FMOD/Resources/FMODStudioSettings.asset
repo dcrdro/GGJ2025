@@ -551,6 +551,8 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - Cutscenes
+  - Music
   - SFX
   BanksToLoad: []
   LiveUpdatePort: 9264
@@ -749,7 +751,7 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     Overlay:
-      Value: 0
+      Value: 1
       HasValue: 1
     OverlayPosition:
       Value: 0

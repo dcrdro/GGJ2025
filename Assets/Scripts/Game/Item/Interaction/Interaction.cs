@@ -18,7 +18,7 @@ public abstract class Interaction : MonoBehaviour
 	[HideInInspector] [SerializeField] public Entity entity;
 	public float interactionTime = 1f;
 	[SerializeField] protected UnityEvent onInteract;
-	public abstract Player.InteractState InteractState { get; }
+	public abstract Player.State State { get; }
 	public abstract bool Interactable { get; protected set; }
 	public abstract void Interact(VariableSystem variableSystem);
 	public abstract void LoadState(VariableSystem variableSystem);

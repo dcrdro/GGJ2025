@@ -2,10 +2,18 @@ using System;
 using Cysharp.Threading.Tasks;
 using SceneManagement;
 
-public class PastRoomBootstrap : RoomSceneController
+namespace SceneController
 {
-	public override async UniTask Load(SceneContext sceneContext, IProgress<LoadingProgress> progress)
+	public class PastRoomBootstrap : RoomSceneController
 	{
-		await LoadRoom(sceneContext, progress);
+		public override async UniTask Load(SceneContext sceneContext, IProgress<LoadingProgress> progress)
+		{
+			await LoadRoom(sceneContext, progress);
+		}
+
+		public override void OnLoadComplete()
+		{
+			player.Appear();
+		}
 	}
 }

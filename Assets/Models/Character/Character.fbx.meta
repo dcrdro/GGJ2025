@@ -131,8 +131,8 @@ ModelImporter:
       name: Armature|Jump
       takeName: Armature|Jump
       internalID: 1079665108409675491
-      firstFrame: 0
-      lastFrame: 57
+      firstFrame: 13
+      lastFrame: 42.2
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -160,8 +160,8 @@ ModelImporter:
       name: Armature|Pick Up
       takeName: Armature|Pick Up
       internalID: 8239819124709042833
-      firstFrame: 0
-      lastFrame: 74
+      firstFrame: 22
+      lastFrame: 69
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

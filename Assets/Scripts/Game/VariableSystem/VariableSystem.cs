@@ -59,9 +59,19 @@ public class VariableSystem : MonoBehaviour
         }
     }
 
-    public GameVar GetVariable(string variableName)
+    public GameVar GetVariable(string variableName, bool createVariableIfMissing = false )
     {
-        return _gameVariables.GetValueOrDefault(variableName);
+        if (_gameVariables.TryGetValue(variableName, out var gameVar))
+        {
+            return gameVar;
+        }
+
+        if (createVariableIfMissing)
+        {
+            var variable = CreateVariable(variableName, "");
+            return variable;
+        }
+        return null;
     }
     
     public bool SetVariable(string variableName, string newValue, bool createVariable = false)
@@ -83,19 +93,21 @@ public class VariableSystem : MonoBehaviour
         return false;
     }
     
-    public void CreateVariable(string variableName, string initialValue)
+    public GameVar CreateVariable(string variableName, string initialValue)
     {
         if (string.IsNullOrEmpty(variableName))
-            return;
+            return null;
         
         var gameVar = new GameVar(variableName, initialValue);
         if (_gameVariables.TryAdd(variableName, gameVar))
         {
             OnCreateVariable?.Invoke(gameVar);
+            return gameVar;
         }
         else
         {
             Debug.LogWarning($"[GameVar] Variable {variableName} already exists");
+            return null;
         }
     }
 }

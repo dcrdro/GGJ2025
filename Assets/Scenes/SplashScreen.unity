@@ -827,7 +827,7 @@ MonoBehaviour:
   splashPanels:
   - {fileID: 1259549290}
   nextSceneInfo:
-    sceneName: Intro
+    sceneName: Cutscene
     instant: 0
   startDelay: 1
 --- !u!4 &1777344049

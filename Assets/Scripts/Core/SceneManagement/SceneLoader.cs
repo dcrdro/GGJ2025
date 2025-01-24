@@ -107,8 +107,9 @@ namespace SceneManagement
 
 		public static void ReloadScene()
 		{
-			var c = new SceneContext() { sceneInfo = new SerializedSceneInfo() { sceneName = SceneManager.GetActiveScene().name } };
-			LoadScene(c);
+			_instance._currentSceneController.Reload();
+			// var c = new SceneContext() { sceneInfo = new SerializedSceneInfo() { sceneName = SceneManager.GetActiveScene().name } };
+			// LoadScene(c);
 		}
 
 		private async UniTask UnloadCurrentScene()
