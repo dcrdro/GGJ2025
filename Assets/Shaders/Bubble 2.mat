@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_New Shader Graph
+  m_Name: Bubble 2
   m_Shader: {fileID: -6465566751694194690, guid: cddf91d3965d5334c9fd3e02297e754f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -55,13 +55,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Frensel_Power: 4.1
-    - _Glow_Spread: 6
+    - _Frensel_Power: 3.1
+    - _Glow_Spread: 12.1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 0, g: 6.467125, b: 8, a: 1}
-    - _Interrior_Color: {r: 0.032128863, g: 0.03552071, b: 0.3584906, a: 1}
+    - _Color: {r: 14.259475, g: 7.9136353, b: 0, a: 1}
+    - _Interrior_Color: {r: 1, g: 0.52154917, b: 0.06132078, a: 1}
     - _Speed: {r: 0.05, g: 0.05, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
