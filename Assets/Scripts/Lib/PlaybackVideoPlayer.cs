@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Video;
 
-public class VideoPlayer : MonoBehaviour
+public class PlaybackVideoPlayer : MonoBehaviour
 {
 	[SerializeField] private UnityEvent OnPlaybackComplete;
 	[SerializeField] private string videoFileName;
@@ -13,7 +13,7 @@ public class VideoPlayer : MonoBehaviour
 	{
 		// VideoPlayer automatically targets the camera backplane when it is added
 		// to a camera object, no need to change videoPlayer.targetCamera.
-		var videoPlayer = mainCamera.gameObject.AddComponent<UnityEngine.Video.VideoPlayer>();
+		var videoPlayer = mainCamera.gameObject.AddComponent<VideoPlayer>();
 		videoPlayer.playOnAwake = false;
 		videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
 

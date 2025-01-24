@@ -108,14 +108,13 @@ namespace Game.Player
         public void TakeDamage()
         {
             animator.SetTrigger("Die");
-            Restart();
+            _ = Restart(); 
         }
 
         private async UniTask Restart()
         {
             await UniTask.Delay(1000);
             SceneLoader.ReloadScene();
-
         }
     }
 }
