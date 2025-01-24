@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 3072824131946190139}
   - component: {fileID: 5908281633583991512}
   - component: {fileID: 4780753439948276344}
+  - component: {fileID: 2479705660953705914}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -302,6 +303,7 @@ MonoBehaviour:
   lelfProbe: {fileID: 5456037098155832493}
   rightProbe: {fileID: 8329436414282784629}
   interactProbe: {fileID: 6591633453662848685}
+  dissolveEffect: {fileID: 2479705660953705914}
   force: 0
 --- !u!54 &5908281633583991512
 Rigidbody:
@@ -356,6 +358,33 @@ MonoBehaviour:
       Data3: -827470181
       Data4: 1351713514
     Path: event:/Character/Player Footsteps
+--- !u!114 &2479705660953705914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4347588980904223863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2b3eee2df64712b8dce4ab7261da10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMaterial: {fileID: 2100000, guid: ada5f529b6e53824aafeb09193e072b5, type: 2}
+  appearEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  disappearEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &5752677028569380375
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,6 +868,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -177.66824
       objectReference: {fileID: 0}
+    - target: {fileID: -4926330922045777180, guid: 7595680fd0eed90469ee7eec19820908, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ada5f529b6e53824aafeb09193e072b5, type: 2}
     - target: {fileID: -4192491875905271157, guid: 7595680fd0eed90469ee7eec19820908, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 43.87749

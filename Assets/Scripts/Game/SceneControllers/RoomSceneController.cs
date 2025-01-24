@@ -13,7 +13,7 @@ namespace SceneController
 	{
 		public UnityEvent OnLoad;
 
-		[SerializeField] private Player player;
+		[SerializeField] protected Player player;
 		[SerializeField] private PlayerSpawner playerSpawner;
 		[SerializeField] private EntityStateSystem itemStateSystem;
 

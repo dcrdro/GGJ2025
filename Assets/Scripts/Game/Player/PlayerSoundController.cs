@@ -80,13 +80,11 @@ namespace Game.Player
 				{
 					footstepInstance.set3DAttributes(transform.position.To3DAttributes());
 					footstepInstance.start();
-					Debug.Log("footstepInstance.start();");
 				}
 			}
 			else if (footstepState == PLAYBACK_STATE.PLAYING)
 			{
 				footstepInstance.stop(STOP_MODE.IMMEDIATE);
-				Debug.Log("footstepInstance.stop(STOP_MODE.IMMEDIATE);");
 			}
 		}
 	}

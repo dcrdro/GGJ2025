@@ -1,6 +1,5 @@
-using SceneManagement;
 
-public class HubSceneContext : SceneContext
+public class HubSceneContext : RoomSceneContext
 {
-	public string spawnPointName;
+	
 }

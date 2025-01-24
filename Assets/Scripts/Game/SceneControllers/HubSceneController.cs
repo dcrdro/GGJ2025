@@ -14,6 +14,7 @@ namespace SceneController
 		[SerializeField] private Player playerController;
 
 		private bool alreadyEntered;
+		private bool doAppear;
 
 #if UNITY_EDITOR
 		private void OnValidate()
@@ -45,16 +46,35 @@ namespace SceneController
 
 		public override async UniTask Load(SceneContext sceneContext, IProgress<LoadingProgress> progress)
 		{
-         	if (sceneContext is HubSceneContext hubSceneContext)
+         	if (sceneContext is RoomSceneContext roomSceneContext)
          	{
-         		var location = playerSpawner.GetSpawnLocation(hubSceneContext.spawnPointName);
+         		var location = playerSpawner.GetSpawnLocation(roomSceneContext.spawnPointName);
          		playerController.transform.position = location.position;
          		playerController.transform.forward = location.forward;
-         	}
+	            doAppear = true;
+            }
+            
+            if (sceneContext is HubSceneContext hubSceneContext)
+            {
+	            //TODO first run
+	            // var location = playerSpawner.GetSpawnLocation(hubSceneContext.spawnPointName);
+	            // playerController.transform.position = location.position;
+	            // playerController.transform.forward = location.forward;
+	            // playerController.Appear();
+            }
             progress.Report(new LoadingProgress() { progress = 0.5f });
             await UniTask.Yield();
             entityStateSystem.Load();
             progress.Report(new LoadingProgress() { progress = 1f });
+		}
+
+		public override void OnLoadComplete()
+		{
+			if (doAppear)
+			{
+				playerController.Appear();
+			}
+			base.OnLoadComplete();
 		}
 	}
 }

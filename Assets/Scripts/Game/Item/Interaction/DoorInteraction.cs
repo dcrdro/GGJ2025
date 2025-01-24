@@ -20,7 +20,7 @@ public class DoorInteraction : Interaction
 	public override bool Interactable { get; protected set; }
 	
 	[SerializeField] private BaseCondition openDoorCondition;
-	[SerializeField] private Player.State provideState = Player.State.Teleport;
+	[SerializeField] private Player.State provideState = Player.State.TeleportIn;
 	//[SerializeField] private AutomaticDoor door;
 	
 	[SerializeField] private string exitPointName; 
