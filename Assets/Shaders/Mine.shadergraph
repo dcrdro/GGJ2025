@@ -1097,7 +1097,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "x": 1.0,
+        "x": 0.6100000143051148,
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
@@ -2112,7 +2112,7 @@
     "m_RefNameGeneratedByDisplayName": "Frensel Power",
     "m_DefaultReferenceName": "_Frensel_Power",
     "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": false,
+    "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
     "m_DismissedVersion": 0,
