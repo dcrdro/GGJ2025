@@ -37,6 +37,11 @@ namespace SceneController
 			await Load(null, progress);
 		}
 
+		//TODO save data for reload scene 
+		// private HubSceneContext _savedSceneContext;
+		// private VariableSystem.Data _savedVariableSystem;
+		// private Inventory.Data _savedInventory;
+
 
 		public override async UniTask Load(SceneContext sceneContext, IProgress<LoadingProgress> progress)
 		{

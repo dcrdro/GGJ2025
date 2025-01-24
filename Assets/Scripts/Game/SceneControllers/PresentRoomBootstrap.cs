@@ -2,10 +2,13 @@ using System;
 using Cysharp.Threading.Tasks;
 using SceneManagement;
 
-public class PresentRoomBootstrap : RoomSceneController
+namespace SceneController
 {
-	public override async UniTask Load(SceneContext sceneContext, IProgress<LoadingProgress> progress)
+	public class PresentRoomBootstrap : RoomSceneController
 	{
-		await LoadRoom(sceneContext, progress);
+		public override async UniTask Load(SceneContext sceneContext, IProgress<LoadingProgress> progress)
+		{
+			await LoadRoom(sceneContext, progress);
+		}
 	}
 }
