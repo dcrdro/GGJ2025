@@ -3,11 +3,11 @@ using UnityEngine;
 public class FMODSetMusicArea : MonoBehaviour
 {
     [Header("Area")]
-    [SerializeField] private MusicArea area;
+    [SerializeField] private MusicParam musicParam;
 
     private void Start()
     {
-        AudioManager.instance.SetMusicArea(area);
-        Debug.Log($"[AudioChanger] Set music area {area}");
+        AudioManager.instance.SetMusicParam(musicParam);
+        Debug.Log($"[AudioChanger] Set music param {musicParam}");
     }
 }

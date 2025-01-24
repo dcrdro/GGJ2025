@@ -1,8 +1,10 @@
+using System.Collections;
 using Game.Player;
 using UnityEngine;
 
 public class TrapInteraction : Interaction
 {
+	[SerializeField] private Transform target;
 	public override Player.State State => Player.State.Damage;
 	
 	public override bool Interactable { get; protected set; }
@@ -17,7 +19,14 @@ public class TrapInteraction : Interaction
 		if (!Interactable)
 			return;
 
-		var variable = variableSystem.GetVariable("Trap", true);
+		//var variable = variableSystem.GetVariable("Trap", true);
+		StartCoroutine(TrapCor());
+	}
+
+	private IEnumerator TrapCor()
+	{
+		yield return new WaitForSeconds(0.5f);
+		
 	}
 
 	public override void LoadState(VariableSystem variableSystem)
