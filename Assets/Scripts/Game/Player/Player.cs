@@ -27,6 +27,7 @@ namespace Game.Player
 		private static readonly int TakeItem = Animator.StringToHash("TakeItem");
 		private static readonly int UseItem = Animator.StringToHash("UseItem");
 		private static readonly int Teleport = Animator.StringToHash("Teleport");
+		private static readonly int Die = Animator.StringToHash("Die");
 
 
 		[Header("Movement Settings")] public float moveSpeed = 5f;
@@ -68,6 +69,7 @@ namespace Game.Player
 			rb = GetComponentInChildren<Rigidbody>();
 			animator = GetComponentInChildren<Animator>();
 			interactProbe.OnInteract += HandleInteractState;
+			//Appear();
 		}
 
 		private void OnDestroy()
@@ -114,6 +116,11 @@ namespace Game.Player
 
 				case State.UseItem:
 					animator.SetTrigger(UseItem);
+					break;
+				
+				case State.Damage:
+					animator.SetTrigger(Die);
+					//yield return DamageCor();
 					break;
 
 				case State.TeleportIn:
@@ -194,6 +201,12 @@ namespace Game.Player
 		{
 			animator.SetBool(IsMoving, Mathf.Abs(rb.linearVelocity.x) > 0.001f);
 			animator.SetBool(IsJumping, !isGrounded);
+		}
+		
+		public void Disappear()
+		{
+			dissolveEffect.Set(0f);
+			HandleInteractState(State.TeleportIn, 1f);
 		}
 
 		public void Appear()

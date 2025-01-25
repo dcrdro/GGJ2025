@@ -49,11 +49,7 @@ public class DoorInteraction : Interaction
 	private IEnumerator LoadNextLevelCor()
 	{
 		onInteract.Invoke();
-		yield return new WaitForSecondsRealtime(0.3f);
-		//Teleport animation here
-		Debug.Log("Teleport animation here");
-		//door.Open();
-		yield return new WaitForSecondsRealtime(0.5f);
+		yield return new WaitForSecondsRealtime(1f);
 		LoadNextScene();
 	}
 

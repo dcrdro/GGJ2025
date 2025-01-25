@@ -110,8 +110,13 @@ public class AudioManager : MonoBehaviour
         musicBus.setVolume(musicVolume);
         sfxBus.setVolume(sfxVolume);
     }
+    
+    public static void PlayOneShot(EventReference sound)
+    {
+        RuntimeManager.PlayOneShot(sound);
+    }
 
-    public void PlayOneShot(EventReference sound, Vector3 worldPosition)
+    public static void PlayOneShot(EventReference sound, Vector3 worldPosition)
     {
         RuntimeManager.PlayOneShot(sound, worldPosition);
     }
@@ -134,10 +139,10 @@ public class AudioManager : MonoBehaviour
         ost.start();
     }
     
-    public void SetMusicArea(MusicArea area)
+    public void SetMusicParam(MusicParam param)
     {
         //ambience.setParameterByName("AMBIENCE", (float)area);
-        ost.setParameterByName("MusicArea", (float)area);
+        ost.setParameterByName("Dynamic Music", (int)param);
     }
 
     public void InitializeMenuButtonHandler() 
