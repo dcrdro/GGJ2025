@@ -69,7 +69,7 @@ Material:
     - _DecalMeshBiasType: 0
     - _DecalMeshDepthBias: 0
     - _DecalMeshViewBias: 0
-    - _Dissolve: 1.001
+    - _Dissolve: 0
     - _DrawOrder: 0
     - _DstBlend: 10
     - _Frensel_Power: 1
