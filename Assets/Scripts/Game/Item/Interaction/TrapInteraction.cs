@@ -19,6 +19,8 @@ public class TrapInteraction : Interaction
 	private IEnumerator TrapCor()
 	{
 		//yield return new WaitForSeconds(interactionTime);
+		player.TakeDamage();
+		yield return new WaitForSeconds(interactionTime / 2);
 		player.Disappear();
 		yield return new WaitForSeconds(interactionTime);
 		player.transform.position = target.position;

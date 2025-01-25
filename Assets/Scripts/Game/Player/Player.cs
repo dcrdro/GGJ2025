@@ -220,7 +220,7 @@ namespace Game.Player
 		public void TakeDamage()
 		{
 			animator.SetTrigger("Die");
-			_ = Restart();
+			//_ = Restart();
 		}
 
 		private async UniTask Restart()
