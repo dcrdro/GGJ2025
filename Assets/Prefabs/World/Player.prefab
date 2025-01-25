@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 5908281633583991512}
   - component: {fileID: 4780753439948276344}
   - component: {fileID: 2479705660953705914}
+  - component: {fileID: 2500010465123017053}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -386,6 +387,24 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+--- !u!114 &2500010465123017053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4347588980904223863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e153a589ce90942a58f7d99662457d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overlayImage: {fileID: 0}
+  startColor: {r: 1, g: 1, b: 1, a: 0}
+  endColor: {r: 1, g: 0.009313857, b: 0, a: 0.62352943}
+  transitionDuration: 0.2
+  returnDuration: 0.2
+  respawnDelay: 0.2
 --- !u!1 &5752677028569380375
 GameObject:
   m_ObjectHideFlags: 0
