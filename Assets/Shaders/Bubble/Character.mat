@@ -56,11 +56,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _Frensel_Power: 3.1
-    - _Glow_Spread: 12.1
+    - _Glow_Spread: 13.66
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 14.259475, g: 7.9136353, b: 0, a: 1}
+    - _Color: {r: 14.816945, g: 16.717314, b: 19.037529, a: 1}
     - _Interrior_Color: {r: 1, g: 0.52154917, b: 0.06132078, a: 1}
     - _Speed: {r: 0.05, g: 0.05, b: 0, a: 0}
   m_BuildTextureStacks: []
