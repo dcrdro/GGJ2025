@@ -294,6 +294,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f4c9fa253b0e945a13c1dd6a48ad60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minPositionOffset: {x: 0, y: 0, z: 0}
+  maxPositionOffset: {x: 0, y: 0, z: 0}
+  minRotationOffset: {x: 0, y: 0, z: 0}
+  maxRotationOffset: {x: 0, y: 0, z: 0}
+  minSpeed: 0.5
+  maxSpeed: 2
 --- !u!212 &63779230
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -995,6 +1001,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f4c9fa253b0e945a13c1dd6a48ad60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minPositionOffset: {x: 0, y: 0, z: 0}
+  maxPositionOffset: {x: 0, y: 0, z: 0}
+  minRotationOffset: {x: 0, y: 0, z: 0}
+  maxRotationOffset: {x: 0, y: 0, z: 0}
+  minSpeed: 0.5
+  maxSpeed: 2
 --- !u!212 &305088297
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1120,7 +1132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9083860331607745189, guid: dbd153ce5f374ff4bbcd475595c6228d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9083860331607745189, guid: dbd153ce5f374ff4bbcd475595c6228d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -2029,6 +2041,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f4c9fa253b0e945a13c1dd6a48ad60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minPositionOffset: {x: 0, y: 0, z: 0}
+  maxPositionOffset: {x: 0, y: 0, z: 0}
+  minRotationOffset: {x: 0, y: 0, z: 0}
+  maxRotationOffset: {x: 0, y: 0, z: 0}
+  minSpeed: 0.5
+  maxSpeed: 2
 --- !u!212 &622554034
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2437,6 +2455,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f4c9fa253b0e945a13c1dd6a48ad60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minPositionOffset: {x: 0, y: 0, z: 0}
+  maxPositionOffset: {x: 0, y: 0, z: 0}
+  minRotationOffset: {x: 0, y: 0, z: 0}
+  maxRotationOffset: {x: 0, y: 0, z: 0}
+  minSpeed: 0.5
+  maxSpeed: 2
 --- !u!212 &758015345
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2771,6 +2795,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f4c9fa253b0e945a13c1dd6a48ad60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minPositionOffset: {x: 0, y: 0, z: 0}
+  maxPositionOffset: {x: 0, y: 0, z: 0}
+  minRotationOffset: {x: 0, y: 0, z: 0}
+  maxRotationOffset: {x: 0, y: 0, z: 0}
+  minSpeed: 0.5
+  maxSpeed: 2
 --- !u!212 &885497688
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2871,6 +2901,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f4c9fa253b0e945a13c1dd6a48ad60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minPositionOffset: {x: 0, y: 0, z: 0}
+  maxPositionOffset: {x: 0, y: 0, z: 0}
+  minRotationOffset: {x: 0, y: 0, z: 0}
+  maxRotationOffset: {x: 0, y: 0, z: 0}
+  minSpeed: 0.5
+  maxSpeed: 2
 --- !u!212 &898786211
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3675,6 +3711,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f4c9fa253b0e945a13c1dd6a48ad60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minPositionOffset: {x: 0, y: 0, z: 0}
+  maxPositionOffset: {x: 0, y: 0, z: 0}
+  minRotationOffset: {x: 0, y: 0, z: 0}
+  maxRotationOffset: {x: 0, y: 0, z: 0}
+  minSpeed: 0.5
+  maxSpeed: 2
 --- !u!212 &1318766543
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4332,7 +4374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2a0cad5ef5a559a4ca6db245311cf282, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.15
+      value: 2.87
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2a0cad5ef5a559a4ca6db245311cf282, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6304,7 +6346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8812194360760252288
 MonoBehaviour:
   m_ObjectHideFlags: 0
