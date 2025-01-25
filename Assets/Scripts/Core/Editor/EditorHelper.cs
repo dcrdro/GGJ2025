@@ -5,7 +5,7 @@ namespace Core.Editor
 {
 	public static class EditorHelper
 	{
-		[MenuItem("Bubbles/Open Hub Scene")]
+		[MenuItem("Bubbles/Open Scene HUB")]
 		public static void OpenHubScene()
 		{
 			EditorSceneManager.OpenScene("Assets/Scenes/HubScene.unity", OpenSceneMode.Single);
