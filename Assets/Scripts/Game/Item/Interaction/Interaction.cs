@@ -1,3 +1,4 @@
+using System;
 using Game.Player;
 using Game.Core;
 using UnityEngine;
@@ -17,7 +18,10 @@ public abstract class Interaction : MonoBehaviour
 	
 	[HideInInspector] [SerializeField] public Entity entity;
 	public float interactionTime = 1f;
+	
+	[Obsolete]
 	[SerializeField] protected UnityEvent onInteract;
+	
 	public abstract Player.State State { get; }
 	public abstract bool Interactable { get; }
 	public abstract void Interact(VariableSystem variableSystem);

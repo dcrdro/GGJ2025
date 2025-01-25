@@ -1,6 +1,8 @@
 using System.Collections;
+using Game;
 using Game.Player;
 using Game.Core;
+using Game.Sequence;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,6 +15,7 @@ public class UseItemInteraction : Interaction
 	[SerializeField] private EntityInfo usedEntity;
 	[SerializeField] private bool removeAfterUse;
 	[SerializeField] private EntityInfo returnEntity;
+	[SerializeField] private BaseSequence useSequence;
 	[SerializeField] private UnityEvent onUseItem;
 	
 	private bool alreadyUsed;
@@ -47,8 +50,15 @@ public class UseItemInteraction : Interaction
 	private IEnumerator UseItemCor()
 	{
 		alreadyUsed = true;
-		yield return new WaitForSeconds(interactionTime);
 		onInteract.Invoke();
+		if (useSequence != null)
+		{
+			yield return useSequence.Sequence();
+		}
+		else
+		{
+			yield return new WaitForSeconds(interactionTime);
+		}
 		onUseItem.Invoke();
 	}
 
