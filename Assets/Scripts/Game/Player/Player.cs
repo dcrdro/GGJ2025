@@ -119,7 +119,8 @@ namespace Game.Player
 					break;
 				
 				case State.Damage:
-					yield return DamageCor();
+					animator.SetTrigger(Die);
+					//yield return DamageCor();
 					break;
 
 				case State.TeleportIn:
@@ -138,13 +139,6 @@ namespace Game.Player
 			yield return new WaitForSeconds(duration);
 			_interactCor = null;
 			_state.Set(State.Idle);
-		}
-
-		private IEnumerator DamageCor()
-		{
-			animator.SetTrigger(Die);
-			yield return new WaitForSeconds(1f);
-			dissolveEffect.RunDisappear();
 		}
 
 		private void HandleMovement()
@@ -207,6 +201,12 @@ namespace Game.Player
 		{
 			animator.SetBool(IsMoving, Mathf.Abs(rb.linearVelocity.x) > 0.001f);
 			animator.SetBool(IsJumping, !isGrounded);
+		}
+		
+		public void Disappear()
+		{
+			dissolveEffect.Set(0f);
+			HandleInteractState(State.TeleportIn, 1f);
 		}
 
 		public void Appear()

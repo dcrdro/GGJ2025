@@ -5,7 +5,9 @@ using UnityEngine;
 public class TrapInteraction : Interaction
 {
 	[SerializeField] private Transform target;
-	public override Player.State State => Player.State.Damage;
+	[SerializeField] private Player player;
+	
+	public override Player.State State => Player.State.TeleportIn;
 	
 	public override bool Interactable { get; protected set; }
 	
@@ -25,8 +27,11 @@ public class TrapInteraction : Interaction
 
 	private IEnumerator TrapCor()
 	{
-		yield return new WaitForSeconds(0.5f);
-		
+		yield return new WaitForSeconds(interactionTime);
+		player.Disappear();
+		yield return new WaitForSeconds(1f);
+		player.transform.position = target.position;
+		player.Appear();
 	}
 
 	public override void LoadState(VariableSystem variableSystem)

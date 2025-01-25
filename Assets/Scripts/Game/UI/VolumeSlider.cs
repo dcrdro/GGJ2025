@@ -44,7 +44,6 @@ namespace Game.UI
                 case VolumeType.MASTER:
                     AudioManager.instance.masterVolume = volumeSlider.value;
                     break;
-                    break;
                 case VolumeType.MUSIC:
                     AudioManager.instance.musicVolume = volumeSlider.value;
                     break;

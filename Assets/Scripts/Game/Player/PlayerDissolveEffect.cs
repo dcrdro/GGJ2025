@@ -21,8 +21,10 @@ namespace Game.Player
 
 		private void Awake()
 		{
-			_dissolveInstance = Instantiate(dissolveMaterial);
-			dissolveMesh.materials[0] = _dissolveInstance;
+			//_dissolveInstance = Instantiate(dissolveMaterial);
+			//_dissolveInstance = dissolveMaterial;
+			_dissolveInstance = dissolveMesh.materials[0];
+			//dissolveMesh.materials[0] = _dissolveInstance;
 		}
 
 		private void OnDestroy()
@@ -36,12 +38,12 @@ namespace Game.Player
 			if (currentValue <= targetValue && targetValue >= 1f)
 			{
 				currentValue += Time.deltaTime;
-				dissolveMaterial.SetFloat(Dissolve, currentValue);
+				_dissolveInstance.SetFloat(Dissolve, currentValue);
 			}
 			if (currentValue > targetValue && targetValue <= 0.1f)
 			{
 				currentValue -= Time.deltaTime;
-				dissolveMaterial.SetFloat(Dissolve, currentValue);
+				_dissolveInstance.SetFloat(Dissolve, currentValue);
 			}
 		}
 
@@ -49,7 +51,7 @@ namespace Game.Player
 		{
 			currentValue = value;
 			targetValue = value;
-			dissolveMaterial.SetFloat(Dissolve, value);
+			_dissolveInstance.SetFloat(Dissolve, value);
 		}
 
 		[ContextMenu("Appear")]
