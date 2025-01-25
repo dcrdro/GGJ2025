@@ -1,39 +1,68 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using Game.Player;
+using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.Splines;
 
 namespace Game.Mirror
 {
 	public class MirrorKill : Interaction
 	{
 		[SerializeField] private float delayBeforeKill;
+        [SerializeField] private Transform target;
+
+		public Animator handAnim;
+		public MirrorTeleport teleport;
 
 		public override Player.Player.State State => Player.Player.State.Idle;
 		public override bool Interactable => true;
 
 		private float currentTime;
-		private bool isPlayerTriggered;
+		private bool isPlayerTriggered, isPlayerCatched;
 
 		private void Update()
 		{
-			if (!isPlayerTriggered)
+			if (!isPlayerTriggered || isPlayerCatched || (!teleport?.IsTeleportedTo ?? false))
 				return;
 
 			currentTime += Time.deltaTime;
 
 			if (currentTime >= delayBeforeKill)
 			{
-				currentTime = 0;
-				Debug.Log("Kill by mirror here");
-			}
+				isPlayerCatched = true;
+                StartCoroutine(TrapCor());
+            }
 		}
 
-		private void OnTriggerEnter(Collider other) =>
-			isPlayerTriggered = true;
+		private IEnumerator TrapCor()
+		{
+			//yield return new WaitForSeconds(interactionTime);
+			Player.Player.Instance.TakeDamage();
+			yield return new WaitForSeconds(interactionTime / 2);
+			Player.Player.Instance.Disappear();
+            OnTriggerExit(null);
+			yield return new WaitForSeconds(interactionTime);
+			Player.Player.Instance.transform.position = target.position;
+			Player.Player.Instance.Appear();
 
-		private void OnTriggerExit(Collider other)
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+			handAnim.Play("In");
+            isPlayerTriggered = true;
+        }
+
+        private void OnTriggerExit(Collider other)
 		{
 			isPlayerTriggered = false;
-			currentTime = 0;
-		}
+            isPlayerCatched = false;
+            
+			handAnim.Play("Out");
+            currentTime = 0;
+
+        }
 
 		public override void Interact(VariableSystem variableSystem)
 		{

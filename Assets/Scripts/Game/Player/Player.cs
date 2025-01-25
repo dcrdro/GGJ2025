@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Game.Player
 {
-	public class Player : MonoBehaviour
+	public class Player : Singleton<Player>
 	{
 		public enum State
 		{
@@ -60,7 +60,7 @@ namespace Game.Player
 		private Animator animator;
 		private bool isGrounded;
 
-		private void Awake()
+		protected override void OnAwake()
 		{
 			_state = new ObservableVar<State>(State.Idle);
 		}
@@ -126,13 +126,13 @@ namespace Game.Player
 					break;
 
 				case State.TeleportIn:
-					view.transform.forward = Vector3.right;
+					//view.transform.forward = Vector3.right;
 					dissolveEffect.RunDisappear();
 					//animator.SetTrigger(Teleport);
 					break;
 
 				case State.TeleportOut:
-					view.transform.forward = Vector3.right;
+					//view.transform.forward = Vector3.right;
 					dissolveEffect.RunAppear();
 					//animator.SetTrigger(Teleport);
 					break;
