@@ -10,7 +10,6 @@ public class UseItemInteraction : Interaction
 
 	public override bool Interactable => condition == null || condition.Satisfied();
 	[SerializeField] private BaseCondition condition;
-	[SerializeField] private Player.State conditionFailState = Player.State.UseItem;
 	[SerializeField] private EntityInfo usedEntity;
 	[SerializeField] private bool removeAfterUse;
 	[SerializeField] private EntityInfo returnEntity;
