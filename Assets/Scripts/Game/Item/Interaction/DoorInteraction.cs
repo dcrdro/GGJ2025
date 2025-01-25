@@ -16,8 +16,8 @@ public class DoorInteraction : Interaction
 			return provideState;
 		}
 	}
-	
-	public override bool Interactable { get; protected set; }
+
+	public override bool Interactable => true;
 	
 	[SerializeField] private BaseCondition openDoorCondition;
 	[SerializeField] private Player.State provideState = Player.State.TeleportIn;
@@ -25,11 +25,6 @@ public class DoorInteraction : Interaction
 	
 	[SerializeField] private string exitPointName; 
 	[SerializeField] private SerializedSceneInfo nextSceneInfo;
-
-	private void Awake()
-	{
-		Interactable = true;
-	}
 
 	public override void Interact(VariableSystem variableSystem)
 	{

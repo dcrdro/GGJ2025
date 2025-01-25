@@ -9849,6 +9849,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1869204242989197704}
     m_Modifications:
+    - target: {fileID: 5590880380123947318, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966688565674844720, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.29344463
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966688565674844720, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
+      propertyPath: m_Size.z
+      value: 1.0912914
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966688565674844720, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
+      propertyPath: m_Center.x
+      value: 0.049117565
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966688565674844720, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
+      propertyPath: m_Center.z
+      value: 0.1843543
+      objectReference: {fileID: 0}
     - target: {fileID: 6874060308927068186, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
       propertyPath: pairMirror
       value: 
@@ -9937,13 +9957,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1869204242989197704}
     m_Modifications:
+    - target: {fileID: 5590880380123947318, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.676
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966688565674844720, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.29344463
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966688565674844720, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
+      propertyPath: m_Size.z
+      value: 1.0912914
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966688565674844720, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
+      propertyPath: m_Center.x
+      value: 0.049117565
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966688565674844720, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
+      propertyPath: m_Center.z
+      value: 0.1843543
+      objectReference: {fileID: 0}
     - target: {fileID: 6874060308927068186, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
       propertyPath: pairMirror
       value: 
       objectReference: {fileID: 6955171752954306146}
     - target: {fileID: 6901710775391679440, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.231
       objectReference: {fileID: 0}
     - target: {fileID: 6901710775391679440, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
       propertyPath: m_LocalPosition.y

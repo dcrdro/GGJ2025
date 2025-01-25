@@ -1,36 +1,55 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Game.Mirror
 {
-  public class MirrorTeleport : Interaction
-  {
-    [SerializeField]
-    private MirrorTeleport pairMirror;
+	public class MirrorTeleport : Interaction
+	{
+		[SerializeField] private MirrorTeleport pairMirror;
 
-    [SerializeField]
-    private Transform teleportPoint;
+		[SerializeField] private Transform teleportPoint;
+		
+		[SerializeField] private Player.Player.State interactState = Player.Player.State.TeleportIn;
 
-    public override Player.Player.State State => Player.Player.State.TeleportIn;
-    public override bool Interactable { get; protected set; }
-    public bool IsTeleportedTo { get; set; }
+		public override Player.Player.State State => interactState;
+		public override bool Interactable => true;
+		public bool IsTeleportedTo { get; set; }
 
-    private void Awake() => 
-      Interactable = true;
+		private void OnTriggerEnter(Collider other)
+		{
+			if (IsTeleportedTo)
+				return;
 
-    private void OnTriggerEnter(Collider other)
-    {
-      if (IsTeleportedTo)
-        return;
+			StartCoroutine(TeleportCor(other));
+		}
 
-      pairMirror.IsTeleportedTo = true;
-      other.transform.parent.position = pairMirror.teleportPoint.position;
-    }
+		private void OnTriggerExit(Collider other) =>
+			IsTeleportedTo = false;
 
-    private void OnTriggerExit(Collider other) =>
-      IsTeleportedTo = false;
+		private IEnumerator TeleportCor(Collider other)
+		{
+			var player = other.GetComponentInParent<Player.Player>();
+			if (player != null)
+			{
+				yield return new WaitForSeconds(1f);
+				pairMirror.IsTeleportedTo = true;
+				other.transform.parent.position = pairMirror.teleportPoint.position;
+				player.Appear();
+			}
+			else
+			{
+				pairMirror.IsTeleportedTo = true;
+				other.transform.parent.position = pairMirror.teleportPoint.position;
+			}
+		}
 
-    public override void Interact(VariableSystem variableSystem) { }
+		public override void Interact(VariableSystem variableSystem)
+		{
+			
+		}
 
-    public override void LoadState(VariableSystem variableSystem) { }
-  }
+		public override void LoadState(VariableSystem variableSystem)
+		{
+		}
+	}
 }

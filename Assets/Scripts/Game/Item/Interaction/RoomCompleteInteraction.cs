@@ -4,22 +4,14 @@ using UnityEngine;
 public class RoomCompleteInteraction : Interaction
 {
 	public override Player.State State => Player.State.Idle;
-	
-	public override bool Interactable { get; protected set; }
+
+	public override bool Interactable => true;
 	
 	[SerializeField] private BaseCondition condition;
 	[SerializeField] private UIPanel completePanel;
 
-	private void Awake()
-	{
-		Interactable = true;
-	}
-
 	public override void Interact(VariableSystem variableSystem)
 	{
-		if (!Interactable)
-			return;
-		
 		if (condition != null && !condition.Satisfied()) 
 			return;
 		

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b220334939491d8c427b27bcb32c08, type: 3}
   m_Name: PastRoom_BoneToy
   m_EditorClassIdentifier: 
-  variableName: BoneToy
+  variableName: PastRoom_BoneToy
   screenName: 
   description: 
-  icon: {fileID: 0}
+  icon: {fileID: -1919564834, guid: 96d9627f507869b44a0fffd5ce04f130, type: 3}
