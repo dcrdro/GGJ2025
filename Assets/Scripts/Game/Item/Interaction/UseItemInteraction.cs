@@ -1,37 +1,32 @@
 using System.Collections;
 using Game.Player;
 using Game.Core;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UseInteraction : Interaction
+public class UseItemInteraction : Interaction
 {
-	public override Player.State State
-	{
-		get
-		{
-			if (condition.Satisfied())
-				return Player.State.Interact;
-			return Player.State.UseItem;
-		}
-	}
+	public override Player.State State => Player.State.UseItem;
 
-	public override bool Interactable { get; protected set; }
-	
+	public override bool Interactable => condition == null || condition.Satisfied();
 	[SerializeField] private BaseCondition condition;
+	[SerializeField] private Player.State conditionFailState = Player.State.UseItem;
 	[SerializeField] private EntityInfo usedEntity;
 	[SerializeField] private bool removeAfterUse;
 	[SerializeField] private EntityInfo returnEntity;
 	[SerializeField] private UnityEvent onUseItem;
+	
+	private bool alreadyUsed;
 
 	private void Awake()
 	{
-		Interactable = true;
+		alreadyUsed = false;
 	}
 
 	public override void Interact(VariableSystem variableSystem)
 	{
-		if (!Interactable)
+		if (alreadyUsed)
 			return;
 		
 		if (!condition.Satisfied()) 
@@ -53,7 +48,7 @@ public class UseInteraction : Interaction
 
 	private IEnumerator UseItemCor()
 	{
-		Interactable = false;
+		alreadyUsed = true;
 		yield return new WaitForSeconds(interactionTime);
 		onInteract.Invoke();
 		onUseItem.Invoke();
@@ -65,7 +60,7 @@ public class UseInteraction : Interaction
 		if (variable != null && variable.Value == "true")
 		{
 			onUseItem.Invoke();
-			Interactable = false;
+			alreadyUsed = true;
 		}
 	}
 }

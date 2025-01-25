@@ -19,7 +19,7 @@ public abstract class Interaction : MonoBehaviour
 	public float interactionTime = 1f;
 	[SerializeField] protected UnityEvent onInteract;
 	public abstract Player.State State { get; }
-	public abstract bool Interactable { get; protected set; }
+	public abstract bool Interactable { get; }
 	public abstract void Interact(VariableSystem variableSystem);
 	public abstract void LoadState(VariableSystem variableSystem);
 }

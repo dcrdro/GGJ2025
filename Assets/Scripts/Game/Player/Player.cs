@@ -13,6 +13,7 @@ namespace Game.Player
 			Idle,
 			Running,
 			TakeItem,
+			[Obsolete]
 			Interact,
 			UseItem,
 			TeleportIn,
@@ -106,6 +107,7 @@ namespace Game.Player
 			_state.Set(interactionState);
 			switch (interactionState)
 			{
+				
 				case State.Interact:
 					animator.SetTrigger(Interact);
 					break;

@@ -149,7 +149,7 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 8, y: 8, z: 8, w: 8}
       customData: 
       outline: []
@@ -158,6 +158,138 @@ TextureImporter:
       bones: []
       spriteID: 5fd37134da842cd4ab62e7d9e9b2f743
       internalID: 1298310528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIAtlas_pastKey
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1663
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b1a32beed3c964eb7d41a3a64c1ce1
+      internalID: -1775907861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIAtlas_presentKey
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1535
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff130f38bba1efa46ae7b2a14b3a5725
+      internalID: 1509130626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIAtlas_futureKey
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1663
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d358b98966564d344a4b0ed8a9415841
+      internalID: 789763825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIAtlas_dogToy
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1535
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64eb24b5af1a3824e928d9c8ce62aec7
+      internalID: -1919564834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIAtlas_portrait
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1663
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 713e27aeea4e09343bf9c83d51e79159
+      internalID: 669078751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIAtlas_teleport
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1535
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff36034af6eeaef459100cb8e36b10b3
+      internalID: -2095598053
       vertices: []
       indices: 
       edges: []
@@ -177,7 +309,13 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       UIAtlas_border4px: 1950533553
+      UIAtlas_dogToy: -1919564834
+      UIAtlas_futureKey: 789763825
+      UIAtlas_pastKey: -1775907861
+      UIAtlas_portrait: 669078751
+      UIAtlas_presentKey: 1509130626
       UIAtlas_progressBar: -940367808
+      UIAtlas_teleport: -2095598053
       UIAtlas_whiteBox: 1298310528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

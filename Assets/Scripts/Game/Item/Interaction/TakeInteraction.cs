@@ -6,12 +6,7 @@ using UnityEngine;
 public class TakeInteraction : Interaction
 {
 	public override Player.State State => Player.State.TakeItem;
-	public override bool Interactable { get; protected set; }
-
-	private void Awake()
-	{
-		Interactable = true;
-	}
+	public override bool Interactable => true;
 
 	public override void Interact(VariableSystem variableSystem)
 	{
