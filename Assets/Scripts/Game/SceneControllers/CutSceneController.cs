@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using SceneManagement;
 using UnityEngine;
 using UnityEngine.Events;
-using FMODUnity;
 
 namespace SceneController
 {
@@ -14,8 +13,7 @@ namespace SceneController
 		[SerializeField] private SerializedSceneInfo nextSceneInfo;
 		[SerializeField] private float waitSkipTimer = 3;
 		[SerializeField] private UnityEvent onLeaveScene;
-		[SerializeField] private StudioEventEmitter eventEmitter;
-
+		
 		private bool _skip;
 		private bool _loadComplete;
 		private Coroutine _cutSceneCor;
@@ -34,6 +32,7 @@ namespace SceneController
 			{
 				Destroy(VariableSystem.Instance.gameObject);
 			}
+			AudioManager.instance.PlayIntroScene();
 		}
 
 		private void Update()
@@ -63,7 +62,7 @@ namespace SceneController
 
 		public void LoadNextScene()
 		{
-			eventEmitter.Stop();
+			AudioManager.instance.StopIntroScene();
 			var context = new HubSceneContext();
 			context.sceneInfo = nextSceneInfo;
 			context.spawnPointName = "Default";

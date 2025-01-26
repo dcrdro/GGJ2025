@@ -1,13 +1,11 @@
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
-using Unity.VisualScripting;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-
-    //public EventInstance PlayerFootsteps { get; private set; }
 
     public FMODEvents events;
     [SerializeField] private StudioBankLoader bankLoaderPrefab;
@@ -28,6 +26,10 @@ public class AudioManager : MonoBehaviour
     private EventInstance shortCircuit;
     private EventInstance shortCircuitDone;
     private StudioBankLoader _bank;
+    
+    
+    private EventInstance introCutscene;
+    private EventInstance finalCutScene;
 
     [Header("Volume")]
     [Range(0, 1)]
@@ -62,13 +64,11 @@ public class AudioManager : MonoBehaviour
         ambienceBus = RuntimeManager.GetBus("bus:/Amb");
         musicBus = RuntimeManager.GetBus("bus:/Music");
         sfxBus = RuntimeManager.GetBus("bus:/Sfx");
-
-        // if (instance != null)
-        // {
-        //     Debug.LogError("Found more than one Audio Manager in scene");
-        // }
-        // instance = this; 
-        // DontDestroyOnLoad(gameObject);
+        
+        InitializeOst(events.mainTheme);
+        InitializeAmb(events.ambience);
+        introCutscene = CreateInstance(events.intro);
+        finalCutScene = CreateInstance(events.final);
     }
 
     
@@ -99,10 +99,40 @@ public class AudioManager : MonoBehaviour
         instance = null;
     }
 
-    private void Start()
+    public void StopMusic()
     {
-        InitializeOst(events.mainTheme);
-        InitializeAmb(events.ambience);
+        ost.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+    
+    public void PlayMusic()
+    {
+        var ostPlayback = ost.getPlaybackState(out var state);
+        if (state == PLAYBACK_STATE.STOPPED)
+        {
+            ost.start();
+        }
+    }
+
+    public void PlayIntroScene()
+    {
+        StopMusic();
+        introCutscene.start();
+    }
+
+    public void StopIntroScene()
+    {
+        introCutscene.stop(STOP_MODE.IMMEDIATE);
+    }
+    
+    public void PlayFinalScene()
+    {
+        StopMusic();
+        finalCutScene.start();
+    }
+
+    public void StopFinalScene()
+    {
+        finalCutScene.stop(STOP_MODE.IMMEDIATE);
     }
 
     public void Update()
