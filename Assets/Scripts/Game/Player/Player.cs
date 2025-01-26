@@ -17,16 +17,16 @@ namespace Game.Player
 			TeleportIn,
 			TeleportOut,
 			Damage,
+			LookAtMirror,
 		}
 
-		private static readonly int IsMoving = Animator.StringToHash("isMoving");
-		private static readonly int IsJumping = Animator.StringToHash("isJumping");
+		public static readonly int IsMoving = Animator.StringToHash("isMoving");
+		public static readonly int IsJumping = Animator.StringToHash("isJumping");
 
-		private static readonly int Interact = Animator.StringToHash("Interact");
-		private static readonly int TakeItem = Animator.StringToHash("TakeItem");
-		private static readonly int UseItem = Animator.StringToHash("UseItem");
-		private static readonly int Teleport = Animator.StringToHash("Teleport");
-		private static readonly int Die = Animator.StringToHash("Die");
+		public static readonly int Interact = Animator.StringToHash("Interact");
+		public static readonly int TakeItem = Animator.StringToHash("TakeItem");
+		public static readonly int UseItem = Animator.StringToHash("UseItem");
+		public static readonly int Die = Animator.StringToHash("Die");
 
 
 		[Header("Movement Settings")] public float moveSpeed = 5f;
@@ -68,13 +68,13 @@ namespace Game.Player
 		{
 			rb = GetComponentInChildren<Rigidbody>();
 			animator = GetComponentInChildren<Animator>();
-			interactProbe.OnInteract += HandleInteractState;
+			interactProbe.OnInteract += ProceedState;
 			//Appear();
 		}
 
 		private void OnDestroy()
 		{
-			interactProbe.OnInteract -= HandleInteractState;
+			interactProbe.OnInteract -= ProceedState;
 		}
 
 		private void Update()
@@ -93,7 +93,7 @@ namespace Game.Player
 			UpdateAnimations();
 		}
 
-		private void HandleInteractState(State interactionState, float duration)
+		private void ProceedState(State interactionState, float duration)
 		{
 			if (_interactCor != null)
 				return;
@@ -106,7 +106,6 @@ namespace Game.Player
 			_state.Set(interactionState);
 			switch (interactionState)
 			{
-				
 				case State.Interact:
 					animator.SetTrigger(Interact);
 					shadow.SetTrigger(Interact);
@@ -125,7 +124,6 @@ namespace Game.Player
 				case State.Damage:
 					animator.SetTrigger(Die);
 					shadow.SetTrigger(Die);
-					//yield return DamageCor();
 					break;
 
 				case State.TeleportIn:
@@ -138,6 +136,15 @@ namespace Game.Player
 					//view.transform.forward = Vector3.right;
 					dissolveEffect.RunAppear();
 					//animator.SetTrigger(Teleport);
+					break;
+				
+				case State.LookAtMirror:
+					view.transform.forward = Vector3.left;
+					yield return new WaitForSeconds(2.5f);
+					animator.SetTrigger(TakeItem);
+					shadow.SetTrigger(TakeItem);
+					yield return new WaitForSeconds(1f);
+					view.transform.right = Vector3.right;
 					break;
 			}
 
@@ -215,27 +222,18 @@ namespace Game.Player
 		public void Disappear()
 		{
 			dissolveEffect.Set(0f);
-			HandleInteractState(State.TeleportIn, 1f);
+			ProceedState(State.TeleportIn, 1f);
 		}
 
 		public void Appear()
 		{
 			dissolveEffect.Set(1f);
-			HandleInteractState(State.TeleportOut, 1f);
+			ProceedState(State.TeleportOut, 1f);
 		}
 
-		public void TakeDamage()
+		public void TakeDamage(float duration)
 		{
-			animator.SetTrigger(Die);
-			shadow.SetTrigger(Die);
-			//_ = Restart();
+			ProceedState(State.Damage, duration);
 		}
-
-		// private async UniTask Restart()
-		// {
-		// 	await UniTask.Delay(1000);
-		// 	SceneLoader.ReloadScene();
-		// }
-		
 	}
 }

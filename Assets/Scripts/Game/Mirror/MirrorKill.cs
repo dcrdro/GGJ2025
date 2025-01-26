@@ -38,8 +38,8 @@ namespace Game.Mirror
 		private IEnumerator TrapCor()
 		{
 			//yield return new WaitForSeconds(interactionTime);
-			Player.Player.Instance.TakeDamage();
-			yield return new WaitForSeconds(interactionTime / 2);
+			Player.Player.Instance.TakeDamage(1f);
+			yield return new WaitForSeconds(interactionTime);
 			Player.Player.Instance.Disappear();
             OnTriggerExit(null);
 			yield return new WaitForSeconds(interactionTime);

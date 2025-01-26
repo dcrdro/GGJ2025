@@ -49,7 +49,7 @@ namespace Game.Mirror
 
         private void Update()
         {
-            if (entered && !IsTeleportedTo && Input.GetKeyDown(KeyCode.UpArrow))
+            if (entered && !IsTeleportedTo && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) )
 			{
 				StartCoroutine(TeleportCor());
 			}

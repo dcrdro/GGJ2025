@@ -5009,6 +5009,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7001284127097853244, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7146669744755051210, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
       propertyPath: m_Name
       value: MirrorTeleport#1
@@ -5017,6 +5021,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.674
       objectReference: {fileID: 0}
+    - target: {fileID: 8298861358623393603, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4572493313129021286, guid: 63c2ddefc2f10b34e9f15d27d04e8af1, type: 3}
