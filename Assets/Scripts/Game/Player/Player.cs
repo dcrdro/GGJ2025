@@ -113,12 +113,16 @@ namespace Game.Player
 					break;
 
 				case State.TakeItem:
-					animator.SetTrigger(TakeItem);
+                    AudioManager.PlayOneShot(FMODEvents.Instance.grabItem);
+
+                    animator.SetTrigger(TakeItem);
 					shadow.SetTrigger(TakeItem);
 					break;
 
 				case State.UseItem:
-					animator.SetTrigger(UseItem);
+                    AudioManager.PlayOneShot(FMODEvents.Instance.grabItem);
+
+                    animator.SetTrigger(UseItem);
 					shadow.SetTrigger(UseItem);
 					break;
 				
@@ -241,6 +245,7 @@ namespace Game.Player
 
 		public void TakeDamage(float duration)
 		{
+			AudioManager.PlayOneShot(FMODEvents.Instance.death);
 			ProceedState(State.Damage, duration);
 		}
 	}

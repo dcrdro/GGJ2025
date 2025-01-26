@@ -16,7 +16,10 @@ public class TakeInteraction : Interaction
 	private IEnumerator InvisibleCor(VariableSystem variableSystem)
 	{
 		yield return new WaitForSeconds(0.5f);
-		variableSystem.SetVariable(entity.info.variableName + Entity.VisibleSuffix, "false", true);
+		if (entity.info.name.ToLower().Contains("key"))
+			AudioManager.PlayOneShot(FMODEvents.Instance.key);
+
+        variableSystem.SetVariable(entity.info.variableName + Entity.VisibleSuffix, "false", true);
 		variableSystem.Inventory.AddItem(entity.info);
 		entity.gameObject.SetActive(false);
 		onInteract.Invoke();

@@ -62,6 +62,8 @@ namespace Game.Mirror
             Player.Player.Instance.Disappear();
 
             yield return new WaitForSeconds(1f);
+            AudioManager.PlayOneShot(FMODEvents.Instance.teleport);
+
             Player.Player.Instance.transform.position = pairMirror.teleportPoint.position;
 			Player.Player.Instance.Appear();
 			

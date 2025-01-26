@@ -1,13 +1,15 @@
 using FMODUnity;
 using UnityEngine;
 
-public class FMODEvents : MonoBehaviour
+public class FMODEvents : Singleton<FMODEvents>
 {
     [Header("SFX")] 
     //public EventReference footsteps;
     public EventReference grabItem;
-    public EventReference teleportEnter;
-    public EventReference teleportExit;
+    public EventReference key;
+    public EventReference teleport;
+    public EventReference death;
+    public EventReference respawn;
 
     [Header("Cutscene")]
     public EventReference intro;

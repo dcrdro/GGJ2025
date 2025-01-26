@@ -65,25 +65,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabItem:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  teleportEnter:
+      Data1: 1332373828
+      Data2: 1128087928
+      Data3: 601357219
+      Data4: -933694407
+    Path: event:/Objects/Interact
+  key:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  teleportExit:
+      Data1: 1774982840
+      Data2: 1216495850
+      Data3: 1982571707
+      Data4: 837694263
+    Path: event:/Objects/Key
+  teleport:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 132072529
+      Data2: 1239315525
+      Data3: -2141470576
+      Data4: -72924875
+    Path: event:/Objects/Teleport
+  death:
+    Guid:
+      Data1: -937768708
+      Data2: 1190754891
+      Data3: -1589961071
+      Data4: -494570889
+    Path: event:/Character/Death
+  respawn:
+    Guid:
+      Data1: 2127461772
+      Data2: 1301708751
+      Data3: -553507649
+      Data4: 1324015494
+    Path: event:/Character/Respawn
   intro:
     Guid:
       Data1: 441944166

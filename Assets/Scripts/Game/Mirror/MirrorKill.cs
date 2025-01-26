@@ -43,7 +43,9 @@ namespace Game.Mirror
 			Player.Player.Instance.Disappear();
             OnTriggerExit(null);
 			yield return new WaitForSeconds(interactionTime);
-			Player.Player.Instance.transform.position = target.position;
+            AudioManager.PlayOneShot(FMODEvents.Instance.respawn);
+
+            Player.Player.Instance.transform.position = target.position;
 			Player.Player.Instance.Appear();
 
         }

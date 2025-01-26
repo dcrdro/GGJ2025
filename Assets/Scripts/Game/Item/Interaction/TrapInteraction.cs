@@ -36,7 +36,9 @@ public class TrapInteraction : Interaction
 		yield return new WaitForSeconds(interactionTime);
 		player.Disappear();
 		yield return new WaitForSeconds(interactionTime);
-		player.transform.position = target.position;
+        AudioManager.PlayOneShot(FMODEvents.Instance.respawn);
+
+        player.transform.position = target.position;
 		player.Appear();
 	}
 
