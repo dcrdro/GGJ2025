@@ -34,5 +34,7 @@ namespace SceneController
 				component.saturation.value = -100;
 			}
 		}
+		
+		
 	}
 }

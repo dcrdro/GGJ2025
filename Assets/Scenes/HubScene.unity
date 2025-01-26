@@ -7650,6 +7650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkItem: {fileID: 11400000, guid: 0a66f387b1a7ebb49a8cecd4314c48f8, type: 2}
+  and: {fileID: 0}
 --- !u!114 &370668289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9066,6 +9067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkItem: {fileID: 11400000, guid: 4fb4a99e7cd1a154b9c3fa21513e590e, type: 2}
+  and: {fileID: 0}
 --- !u!114 &548083255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16137,22 +16139,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 14794619663302655, guid: a27783dc9998f0542a567676f04ab83f, type: 3}
-      propertyPath: debugItems.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 14794619663302655, guid: a27783dc9998f0542a567676f04ab83f, type: 3}
-      propertyPath: 'debugItems.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 0a66f387b1a7ebb49a8cecd4314c48f8, type: 2}
-    - target: {fileID: 14794619663302655, guid: a27783dc9998f0542a567676f04ab83f, type: 3}
-      propertyPath: 'debugItems.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 125cde15173d7174aa7e06ae0ad9e442, type: 2}
-    - target: {fileID: 14794619663302655, guid: a27783dc9998f0542a567676f04ab83f, type: 3}
-      propertyPath: 'debugItems.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 4fb4a99e7cd1a154b9c3fa21513e590e, type: 2}
     - target: {fileID: 807784319103264412, guid: a27783dc9998f0542a567676f04ab83f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -25554,6 +25540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkItem: {fileID: 11400000, guid: 125cde15173d7174aa7e06ae0ad9e442, type: 2}
+  and: {fileID: 0}
 --- !u!114 &1508870972
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -783,7 +783,7 @@ PrefabInstance:
     - target: {fileID: -3887185075125053422, guid: 192f230cb8b70324789ba5e5052b02cf, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e14c699cad990ae4f83ee35e054b1782, type: 2}
+      objectReference: {fileID: 2100000, guid: d0ec5c6510ae7d3499a04b6f1b0c323a, type: 2}
     - target: {fileID: 919132149155446097, guid: 192f230cb8b70324789ba5e5052b02cf, type: 3}
       propertyPath: m_Name
       value: Bubble

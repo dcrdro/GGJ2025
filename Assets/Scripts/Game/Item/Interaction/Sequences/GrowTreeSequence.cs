@@ -16,21 +16,20 @@ public class GrowTreeSequence : BaseSequence
 	[SerializeField] private float saturationFrom;
 	[SerializeField] private float saturationTo;
 	[SerializeField] private float saturationTime = 2f;
+	[SerializeField] private GameObject oldTree;
+	[SerializeField] private GameObject newTree;
 	[SerializeField] private GameObject treeView;
 	[SerializeField] private float targetScale;
-	[SerializeField] private MeshRenderer treeRenderer;
 	[SerializeField] private GameObject sphere;
 	[SerializeField] private UnityEvent additional;
 	
 
 	private ColorAdjustments _colorAdjustments;
-	private Material leafInstance;
+	[SerializeField] private Material leafInstance;
 	private bool enableLeaf;
-	private float currentValue = 1f;
+	private bool enableSaturation;
+	private float currentDissolve = 1f;
 	private float saturation;
-	
-	
-	
 
 	private void Awake()
 	{
@@ -38,37 +37,43 @@ public class GrowTreeSequence : BaseSequence
 		{
 			_colorAdjustments = component;
 		}
-		leafInstance = treeRenderer.materials[1];
+		leafInstance.SetFloat(Dissolve, 0);
 	}
 
 	private void Update()
 	{
-		if (!enableLeaf)
-			return;
-		
-		if (currentValue < 0.1)
+		if (enableLeaf)
 		{
-			currentValue -= Time.deltaTime;
-			leafInstance.SetFloat(Dissolve, currentValue);
+			if (currentDissolve > 0.01)
+			{
+				currentDissolve -= Time.deltaTime/2f;
+				if (currentDissolve < 1f)
+				{
+					leafInstance.SetFloat(Dissolve, currentDissolve);
+					Debug.Log(currentDissolve);
+				}
+			}
 		}
 
-		if (saturation < saturationTime)
+		if (enableSaturation)
 		{
-			saturation += Time.deltaTime;
+			if (saturation < saturationTime)
+			{
+				saturation += Time.deltaTime;
+			}
+			
+			_colorAdjustments.saturation.value = Mathf.Lerp(saturationFrom, saturationTo, saturation/saturationTime);
 		}
-		
-		_colorAdjustments.saturation.value = Mathf.Lerp(saturationFrom, saturationTo, saturation/saturationTime);
-	}
-
-	private void OnDestroy()
-	{
-		Destroy(leafInstance);
 	}
 
 	public override IEnumerator Sequence()
 	{
-		currentValue = 1f;
-		StartCoroutine(Appear());
+		yield return new WaitForSeconds(0.5f);
+		oldTree.SetActive(false);
+		newTree.SetActive(true);
+		enableLeaf = true;
+		currentDissolve = 1.3f;
+		leafInstance.SetFloat(Dissolve, 1f);
 		yield return Scale();
 	}
 
@@ -81,11 +86,5 @@ public class GrowTreeSequence : BaseSequence
 		sphere.gameObject.SetActive(true);
 	}
 	
-	private IEnumerator Appear()
-	{
-		yield return new WaitForSeconds(1f);
-		enableLeaf = true;
-	}
-
 	public override float TotalTime => 4f;
 }
