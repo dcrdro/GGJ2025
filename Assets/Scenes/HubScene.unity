@@ -222,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 691319762}
     - target: {fileID: 8581084442164649557, guid: 8ee2de91776701e46a95485bd1007744, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.902394
+      value: -11.904084
       objectReference: {fileID: 0}
     - target: {fileID: 8581084442164649557, guid: 8ee2de91776701e46a95485bd1007744, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7724,8 +7724,8 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1839008012}
-        m_TargetAssemblyTypeName: FMODSetMusicArea, Assembly-CSharp
-        m_MethodName: SetMode2
+        m_TargetAssemblyTypeName: FMODSetGameProgress, Assembly-CSharp
+        m_MethodName: SetPresentComplete
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9140,8 +9140,8 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1839008012}
-        m_TargetAssemblyTypeName: FMODSetMusicArea, Assembly-CSharp
-        m_MethodName: SetMode1
+        m_TargetAssemblyTypeName: FMODSetGameProgress, Assembly-CSharp
+        m_MethodName: SetPastComplete
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15972,7 +15972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5168413010315402099, guid: 86d596a7aa0d2784c8556d0744129b61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.902394
+      value: -11.904084
       objectReference: {fileID: 0}
     - target: {fileID: 5168413010315402099, guid: 86d596a7aa0d2784c8556d0744129b61, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25627,18 +25627,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1839008012}
-        m_TargetAssemblyTypeName: FMODSetMusicArea, Assembly-CSharp
-        m_MethodName: SetMode3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1508870975}
         m_TargetAssemblyTypeName: DoorInteraction, Assembly-CSharp
         m_MethodName: Interact
@@ -33151,8 +33139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b201efb8c3e7e494c9b4da5779d3ed0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicParam: 0
-  setMusicArea: 0
+  gameProgress: 0
+  setProgressOnStart: 0
 --- !u!1001 &1852361615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35195,6 +35183,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5552635352244116162, guid: 941b290c683b3b24eb9ef0fad1415729, type: 3}
   m_PrefabInstance: {fileID: 464185330}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2002002943
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1416523975021045348, guid: 761abc06f2e1e5645ba7da2b1acdfe53, type: 3}
+      propertyPath: m_Name
+      value: FMODSetAmbient
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819325559744658763, guid: 761abc06f2e1e5645ba7da2b1acdfe53, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819325559744658763, guid: 761abc06f2e1e5645ba7da2b1acdfe53, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819325559744658763, guid: 761abc06f2e1e5645ba7da2b1acdfe53, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819325559744658763, guid: 761abc06f2e1e5645ba7da2b1acdfe53, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819325559744658763, guid: 761abc06f2e1e5645ba7da2b1acdfe53, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819325559744658763, guid: 761abc06f2e1e5645ba7da2b1acdfe53, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819325559744658763, guid: 761abc06f2e1e5645ba7da2b1acdfe53, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819325559744658763, guid: 761abc06f2e1e5645ba7da2b1acdfe53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819325559744658763, guid: 761abc06f2e1e5645ba7da2b1acdfe53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819325559744658763, guid: 761abc06f2e1e5645ba7da2b1acdfe53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7617042165235574570, guid: 761abc06f2e1e5645ba7da2b1acdfe53, type: 3}
+      propertyPath: ambientParam
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 761abc06f2e1e5645ba7da2b1acdfe53, type: 3}
 --- !u!1001 &2010432292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38459,3 +38508,4 @@ SceneRoots:
   - {fileID: 1717441370}
   - {fileID: 247991430}
   - {fileID: 2091558243}
+  - {fileID: 2002002943}

@@ -29,20 +29,18 @@ public class AudioManager : MonoBehaviour
     private EventInstance shortCircuitDone;
     private StudioBankLoader _bank;
 
-
-    [SerializeField] private MusicParam ambientLevel;
-
     [Header("Volume")]
     [Range(0, 1)]
     public float masterVolume =1;
     [Range(0, 1)]
     public float musicVolume =1;
-    //[Range(0, 1)] public float ambienceVolume = 1;
+    [Range(0, 1)] 
+    public float ambienceVolume = 1;
     [Range(0, 1)]
     public float sfxVolume = 1;
 
     private Bus masterBus;
-    //private Bus ambienceBus;
+    private Bus ambienceBus;
     private Bus musicBus;
     private Bus sfxBus;
 
@@ -61,7 +59,7 @@ public class AudioManager : MonoBehaviour
         }
 
         masterBus = RuntimeManager.GetBus("bus:/");
-        //ambienceBus = RuntimeManager.GetBus("bus:/Ambience");
+        ambienceBus = RuntimeManager.GetBus("bus:/Amb");
         musicBus = RuntimeManager.GetBus("bus:/Music");
         sfxBus = RuntimeManager.GetBus("bus:/Sfx");
 
@@ -105,13 +103,12 @@ public class AudioManager : MonoBehaviour
     {
         InitializeOst(events.mainTheme);
         InitializeAmb(events.ambience);
-        SetAmbientParam(ambientLevel);
     }
 
     public void Update()
     {
         masterBus.setVolume(masterVolume);
-        //ambienceBus.setVolume(ambienceVolume);
+        ambienceBus.setVolume(ambienceVolume);
         musicBus.setVolume(musicVolume);
         sfxBus.setVolume(sfxVolume);
     }
@@ -132,33 +129,26 @@ public class AudioManager : MonoBehaviour
         return eventInstance;
     }
 
-    // public void InitializeAmbience(EventReference ambienceEventReference)
-    // {
-    //     ambience = CreateInstance(ambienceEventReference);
-    //     ambience.start();
-    // }
-
     public void InitializeOst(EventReference ostReference)
     {
         ost = CreateInstance(ostReference);
         ost.start();
     }
+    
     public void InitializeAmb(EventReference ostReference)
     {
         amb = CreateInstance(ostReference);
         amb.start();
     }
     
-    public void SetMusicParam(MusicParam param)
+    public void SetMusicProgress(GameProgress param)
     {
-        //ambience.setParameterByName("AMBIENCE", (float)area);
         ost.setParameterByName("Dynamic Music", (int)param);
     }
     
-    public void SetAmbientParam(MusicParam param)
+    public void SetAmbientParam(AmbientParam param)
     {
-        //ambience.setParameterByName("AMBIENCE", (float)area);
-        ost.setParameterByName("Ambient Select", (int)param);
+        amb.setParameterByName("Ambient Select", (int)param);
     }
 
     public void InitializeMenuButtonHandler() 

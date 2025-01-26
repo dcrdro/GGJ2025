@@ -44,6 +44,7 @@ public class DoorInteraction : Interaction
 	private IEnumerator LoadNextLevelCor()
 	{
 		onInteract.Invoke();
+		AudioManager.PlayOneShot(FMODEvents.Instance.teleport);
 		yield return new WaitForSecondsRealtime(1f);
 		LoadNextScene();
 	}
