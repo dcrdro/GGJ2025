@@ -1,49 +1,44 @@
 using System.Collections;
+using Game.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CheckpointAndDeathHandler : MonoBehaviour
 {
     [Header("UI Settings")]
-    [SerializeField] private Image overlayImage; // Посилання на UI Image для переходу кольору
-    [SerializeField] private Color startColor = Color.white; // Початковий колір UI
-    [SerializeField] private Color endColor = Color.red; // Кінцевий колір UI
-    [SerializeField] private float transitionDuration = 2f; // Тривалість переходу кольору
-    [SerializeField] private float returnDuration = 2f; // Тривалість повернення до початкового кольору
+    [SerializeField] private Image overlayImage;
+    [SerializeField] private Color startColor = Color.white;
+    [SerializeField] private Color endColor = Color.red;
+    [SerializeField] private float transitionDuration = 2f;
+    [SerializeField] private float returnDuration = 2f;
+    [SerializeField] private Player player;
 
     [Header("Respawn Settings")]
-    [SerializeField] private float respawnDelay = 2f; // Затримка перед відродженням
+    [SerializeField] private float respawnDelay = 2f;
 
-    private Vector3 lastCheckpointPosition; // Позиція останнього контрольного пункту
-    private bool isRespawning = false; // Флаг для уникнення дублювання процесу відродження
+    private Vector3 lastCheckpointPosition;
+    private bool isRespawning = false;
 
     private void Start()
     {
-        // Встановлення початкового кольору UI
         if (overlayImage != null)
         {
             overlayImage.color = startColor;
         }
-
-        // Ініціалізація позиції контрольного пункту
         lastCheckpointPosition = transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Якщо вже відбувається респавн, не виконуємо дії
         if (isRespawning) return;
 
-        // Перевірка тегів
         if (other.CompareTag("Checkpoint"))
         {
-            // Збереження позиції контрольного пункту
             Debug.Log("Checkpoint reached!");
             lastCheckpointPosition = other.transform.position;
         }
         else if (other.CompareTag("Death"))
         {
-            // Обробка смерті
             Debug.Log("Death zone entered!");
             StartCoroutine(HandleDeath());
         }
@@ -53,7 +48,6 @@ public class CheckpointAndDeathHandler : MonoBehaviour
     {
         isRespawning = true;
 
-        // Плавний перехід кольору UI до кінцевого кольору
         if (overlayImage != null)
         {
             float elapsedTime = 0f;
@@ -65,13 +59,10 @@ public class CheckpointAndDeathHandler : MonoBehaviour
             }
         }
 
-        // Очікування перед респавном
         yield return new WaitForSeconds(respawnDelay);
-
-        // Повернення до контрольного пункту
+        
         transform.position = lastCheckpointPosition;
 
-        // Плавне повернення кольору UI до початкового
         if (overlayImage != null)
         {
             float elapsedTime = 0f;
@@ -81,6 +72,11 @@ public class CheckpointAndDeathHandler : MonoBehaviour
                 overlayImage.color = Color.Lerp(endColor, startColor, elapsedTime / returnDuration);
                 yield return null;
             }
+        }
+        
+        if (player != null)
+        {
+            player.Appear();
         }
 
         isRespawning = false;

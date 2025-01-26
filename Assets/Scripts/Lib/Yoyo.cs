@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Yoyo : MonoBehaviour
@@ -10,9 +11,17 @@ public class Yoyo : MonoBehaviour
     [SerializeField] private Axis axis;
     [SerializeField] private float amount;
     [SerializeField] private float speed = 1f;
+    //[SerializeField] private bool localPosition = false;
+    [SerializeField] private Vector3 initialPosition;
+    
 
     private bool up;
     private float value;
+
+    private void Start()
+    {
+        initialPosition = transform.position;
+    }
 
 
     private float Ease(float x)
@@ -43,15 +52,15 @@ public class Yoyo : MonoBehaviour
         switch (axis)
         {
             case Axis.X:
-                transform.localPosition = new Vector3(Ease(value) * amount, 0, 0);
+                transform.position = initialPosition + new Vector3(Ease(value) * amount, 0, 0);
                 break;
             
             case Axis.Y:
-                transform.localPosition = new Vector3(0, Ease(value) * amount, 0);
+                transform.position = initialPosition + new Vector3(0, Ease(value) * amount, 0);
                 break;
             
             case Axis.Z:
-                transform.localPosition = new Vector3(0, 0, Ease(value) * amount);
+                transform.position = initialPosition + new Vector3(0, 0, Ease(value) * amount);
                 break;
         }
     }
