@@ -25,6 +25,7 @@ namespace SceneController
 
 		private void Awake()
 		{
+			Time.timeScale = 1f;
 			Application.targetFrameRate = 60;
 		}
 

@@ -16,6 +16,19 @@ public class TrapInteraction : Interaction
 		StartCoroutine(TrapCor());
 	}
 
+	protected override void Validate()
+	{
+		if (player == null)
+			player = FindFirstObjectByType<Player>();
+
+		if (target == null)
+		{
+			var spawner = FindFirstObjectByType<PlayerSpawner>();
+			if (spawner != null)
+				target = spawner.GetSpawnLocation("Default");
+		}
+	}
+
 	private IEnumerator TrapCor()
 	{
 		//yield return new WaitForSeconds(interactionTime);

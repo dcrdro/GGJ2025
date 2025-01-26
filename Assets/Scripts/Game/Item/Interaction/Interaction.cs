@@ -13,8 +13,11 @@ public abstract class Interaction : MonoBehaviour
 	private void OnValidate()
 	{
 		entity = gameObject.GetComponent<Entity>();
+		Validate();
 	}
 #endif
+	
+	protected virtual void Validate() {}
 	
 	[HideInInspector] [SerializeField] public Entity entity;
 	public float interactionTime = 1f;

@@ -3,23 +3,32 @@ using UnityEngine;
 
 public class GameUIManager : UIManager<GameUIManager>
 {
+    public bool IsPaused { get; private set; }
+
     public void OnPauseButtonClicked()
     {
-        GameManager.Instance.PauseGame();
+        if (IsPaused) return;
+        IsPaused = true;
+        Time.timeScale = 0;
+        ShowUI(UIPanel.PauseMenu);
     }
 
     public void OnUnpauseButtonClicked()
     {
-        GameManager.Instance.UnpauseGame();
+        if (!IsPaused) return;
+
+        IsPaused = false;
+        Time.timeScale = 1;
+        HideUI(UIPanel.PauseMenu);
     }
 
     public void OnMainMenuButtonClicked()
     {
-        GameManager.Instance.GoToMainMenu();
+        //GameManager.Instance.GoToMainMenu();
     }
 
     public void OnRestartButtonClicked()
     {
-        GameManager.Instance.RestartLevel();
+        //GameManager.Instance.RestartLevel();
     }
 }
