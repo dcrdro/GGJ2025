@@ -25515,6 +25515,7 @@ GameObject:
   - component: {fileID: 1508870973}
   - component: {fileID: 1508870972}
   - component: {fileID: 1508870971}
+  - component: {fileID: 1508870975}
   m_Layer: 8
   m_Name: FutureKeyInjector
   m_TagString: Untagged
@@ -25638,6 +25639,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1508870975}
+        m_TargetAssemblyTypeName: DoorInteraction, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 848404920}
+          m_ObjectArgumentAssemblyTypeName: VariableSystem, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1508870973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25672,6 +25685,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.38236904, y: 0.37842005, z: 1.6654825}
   m_Center: {x: -0.10602236, y: 0.009762853, z: -0.5977762}
+--- !u!114 &1508870975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508870969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83aae6e89f0a414a90d106bbde10375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 1508870973}
+  interactionTime: 1
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  openDoorCondition: {fileID: 0}
+  provideState: 5
+  exitPointName: 
+  nextSceneInfo:
+    sceneName: Cut Scene Ending
+    instant: 0
 --- !u!1001 &1510705912
 PrefabInstance:
   m_ObjectHideFlags: 0
