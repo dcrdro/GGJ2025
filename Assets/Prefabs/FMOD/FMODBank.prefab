@@ -51,5 +51,9 @@ MonoBehaviour:
   - Master
   - Music
   - SFX
+  - Ambience
+  - UI
+  - Objects
+  - Master.strings
   CollisionTag: 
   PreloadSamples: 1
