@@ -29,6 +29,9 @@ public class AudioManager : MonoBehaviour
     private EventInstance shortCircuitDone;
     private StudioBankLoader _bank;
 
+
+    [SerializeField] private MusicParam ambientLevel;
+
     [Header("Volume")]
     [Range(0, 1)]
     public float masterVolume =1;
@@ -102,6 +105,7 @@ public class AudioManager : MonoBehaviour
     {
         InitializeOst(events.mainTheme);
         InitializeAmb(events.ambience);
+        SetAmbientParam(ambientLevel);
     }
 
     public void Update()
@@ -150,7 +154,8 @@ public class AudioManager : MonoBehaviour
         //ambience.setParameterByName("AMBIENCE", (float)area);
         ost.setParameterByName("Dynamic Music", (int)param);
     }
-        public void SetAmbientParam(MusicParam param)
+    
+    public void SetAmbientParam(MusicParam param)
     {
         //ambience.setParameterByName("AMBIENCE", (float)area);
         ost.setParameterByName("Ambient Select", (int)param);

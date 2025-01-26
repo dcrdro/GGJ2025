@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8884640933894907492}
   - component: {fileID: 775693762}
   - component: {fileID: 775693761}
-  - component: {fileID: 755584193359262587}
   m_Layer: 0
   m_Name: FMODSoundManager
   m_TagString: Untagged
@@ -48,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events: {fileID: 775693761}
   bankLoaderPrefab: {fileID: 8780825761072326730, guid: 9832e6c8d98af9f4d8e9c46f814aef68, type: 3}
+  ambientLevel: 0
   masterVolume: 1
   musicVolume: 1
   sfxVolume: 1
@@ -126,17 +126,3 @@ MonoBehaviour:
       Data3: -879253855
       Data4: 45301095
     Path: event:/Ambience/Ambience
---- !u!114 &755584193359262587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8884640933894907418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b201efb8c3e7e494c9b4da5779d3ed0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicParam: 0
-  setMusicArea: 1

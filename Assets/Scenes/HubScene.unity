@@ -222,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 691319762}
     - target: {fileID: 8581084442164649557, guid: 8ee2de91776701e46a95485bd1007744, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.902817
+      value: -11.902394
       objectReference: {fileID: 0}
     - target: {fileID: 8581084442164649557, guid: 8ee2de91776701e46a95485bd1007744, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7723,7 +7723,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1839008012}
         m_TargetAssemblyTypeName: FMODSetMusicArea, Assembly-CSharp
         m_MethodName: SetMode2
         m_Mode: 1
@@ -9139,7 +9139,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1839008012}
         m_TargetAssemblyTypeName: FMODSetMusicArea, Assembly-CSharp
         m_MethodName: SetMode1
         m_Mode: 1
@@ -15972,7 +15972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5168413010315402099, guid: 86d596a7aa0d2784c8556d0744129b61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.902817
+      value: -11.902394
       objectReference: {fileID: 0}
     - target: {fileID: 5168413010315402099, guid: 86d596a7aa0d2784c8556d0744129b61, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25626,7 +25626,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1839008012}
         m_TargetAssemblyTypeName: FMODSetMusicArea, Assembly-CSharp
         m_MethodName: SetMode3
         m_Mode: 1
@@ -33070,6 +33070,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1839008011}
+  - component: {fileID: 1839008012}
   m_Layer: 0
   m_Name: Interaction
   m_TagString: Untagged
@@ -33102,6 +33103,20 @@ Transform:
   - {fileID: 1589444761}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1839008012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839008010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b201efb8c3e7e494c9b4da5779d3ed0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicParam: 0
+  setMusicArea: 0
 --- !u!1001 &1852361615
 PrefabInstance:
   m_ObjectHideFlags: 0
