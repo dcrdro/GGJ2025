@@ -825,7 +825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5168413010315402099, guid: 86d596a7aa0d2784c8556d0744129b61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1388531
+      value: 1.137593
       objectReference: {fileID: 0}
     - target: {fileID: 5168413010315402099, guid: 86d596a7aa0d2784c8556d0744129b61, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8056,7 +8056,7 @@ Transform:
   m_GameObject: {fileID: 568743135}
   serializedVersion: 2
   m_LocalRotation: {x: 0.03489949, y: 0, z: 0, w: 0.99939084}
-  m_LocalPosition: {x: 1.1388531, y: 2.8355126, z: -7.1096497}
+  m_LocalPosition: {x: 1.137593, y: 2.8355126, z: -7.1096497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9434,21 +9434,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: MirrorKill (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 7281040119222787253, guid: b76b0debf5d18a143bf032e598114122, type: 3}
-      propertyPath: m_Center.y
-      value: 0.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 7281040119222787253, guid: b76b0debf5d18a143bf032e598114122, type: 3}
-      propertyPath: m_Center.z
-      value: -0.04
-      objectReference: {fileID: 0}
     - target: {fileID: 7494361038838533461, guid: b76b0debf5d18a143bf032e598114122, type: 3}
       propertyPath: m_LocalPosition.x
       value: 36.5
       objectReference: {fileID: 0}
     - target: {fileID: 7494361038838533461, guid: b76b0debf5d18a143bf032e598114122, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.35
+      value: 0.084
       objectReference: {fileID: 0}
     - target: {fileID: 7494361038838533461, guid: b76b0debf5d18a143bf032e598114122, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14506,14 +14498,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MirrorKill
       objectReference: {fileID: 0}
-    - target: {fileID: 7281040119222787253, guid: b76b0debf5d18a143bf032e598114122, type: 3}
-      propertyPath: m_Center.y
-      value: 0.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 7281040119222787253, guid: b76b0debf5d18a143bf032e598114122, type: 3}
-      propertyPath: m_Center.z
-      value: -0.04
-      objectReference: {fileID: 0}
     - target: {fileID: 7494361038838533461, guid: b76b0debf5d18a143bf032e598114122, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.27000666
@@ -15511,14 +15495,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MirrorKill (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 7281040119222787253, guid: b76b0debf5d18a143bf032e598114122, type: 3}
-      propertyPath: m_Center.y
-      value: 0.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 7281040119222787253, guid: b76b0debf5d18a143bf032e598114122, type: 3}
-      propertyPath: m_Center.z
-      value: -0.04
-      objectReference: {fileID: 0}
     - target: {fileID: 7494361038838533461, guid: b76b0debf5d18a143bf032e598114122, type: 3}
       propertyPath: m_LocalPosition.x
       value: 73.9
@@ -15600,14 +15576,6 @@ PrefabInstance:
     - target: {fileID: 6118296838360757327, guid: b76b0debf5d18a143bf032e598114122, type: 3}
       propertyPath: m_Name
       value: MirrorKill (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7281040119222787253, guid: b76b0debf5d18a143bf032e598114122, type: 3}
-      propertyPath: m_Center.y
-      value: 0.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 7281040119222787253, guid: b76b0debf5d18a143bf032e598114122, type: 3}
-      propertyPath: m_Center.z
-      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7494361038838533461, guid: b76b0debf5d18a143bf032e598114122, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22916,10 +22884,6 @@ PrefabInstance:
     - target: {fileID: 807784319103264412, guid: a27783dc9998f0542a567676f04ab83f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 809027489536774416, guid: a27783dc9998f0542a567676f04ab83f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2111115949504694321, guid: a27783dc9998f0542a567676f04ab83f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -31286,14 +31250,6 @@ PrefabInstance:
     - target: {fileID: 6118296838360757327, guid: b76b0debf5d18a143bf032e598114122, type: 3}
       propertyPath: m_Name
       value: MirrorKill (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7281040119222787253, guid: b76b0debf5d18a143bf032e598114122, type: 3}
-      propertyPath: m_Center.y
-      value: 0.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 7281040119222787253, guid: b76b0debf5d18a143bf032e598114122, type: 3}
-      propertyPath: m_Center.z
-      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7494361038838533461, guid: b76b0debf5d18a143bf032e598114122, type: 3}
       propertyPath: m_LocalPosition.x
