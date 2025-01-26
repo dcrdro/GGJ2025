@@ -63,7 +63,19 @@ MonoBehaviour:
   interactionTime: 1
   onInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1467868383746764380}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: E
+          m_BoolArgument: 0
+        m_CallState: 2
   target: {fileID: 0}
   player: {fileID: 0}
 --- !u!135 &8582955558051387688
@@ -221,6 +233,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bf1fc51703486049881ccf34d0db8c0, type: 3}
+--- !u!95 &1467868383746764380 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4451997088416144962, guid: 7bf1fc51703486049881ccf34d0db8c0, type: 3}
+  m_PrefabInstance: {fileID: 2996654376105193502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6960365983859229108 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5264266764501053866, guid: 7bf1fc51703486049881ccf34d0db8c0, type: 3}

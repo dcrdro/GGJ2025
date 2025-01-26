@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 3620921916601416585}
   - component: {fileID: 6278085226575686000}
   - component: {fileID: 8542184508133729534}
+  - component: {fileID: 1058806921622896577}
   m_Layer: 8
   m_Name: Trigger
   m_TagString: Untagged
@@ -181,9 +182,36 @@ MonoBehaviour:
   interactionTime: 1
   onInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1058806921622896577}
+        m_TargetAssemblyTypeName: Drawn, Assembly-CSharp
+        m_MethodName: Drawnn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   target: {fileID: 0}
   player: {fileID: 0}
+--- !u!114 &1058806921622896577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6461133754294655680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13fd9ba844b2c547922e12a61e7f213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  t:
+  - {fileID: 8392448808138173548}
+  - {fileID: 5654344275878396660}
 --- !u!1001 &431138649737035028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -258,6 +286,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4054060072035439859, guid: e43b97bafe086b5449e66ddc86109097, type: 3}
   m_PrefabInstance: {fileID: 431138649737035028}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &5654344275878396660 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5441459373681065952, guid: e43b97bafe086b5449e66ddc86109097, type: 3}
+  m_PrefabInstance: {fileID: 431138649737035028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4608314648268329868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,5 +363,10 @@ PrefabInstance:
 --- !u!4 &555895376432269183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4054060072035439859, guid: e43b97bafe086b5449e66ddc86109097, type: 3}
+  m_PrefabInstance: {fileID: 4608314648268329868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8392448808138173548 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5441459373681065952, guid: e43b97bafe086b5449e66ddc86109097, type: 3}
   m_PrefabInstance: {fileID: 4608314648268329868}
   m_PrefabAsset: {fileID: 0}
