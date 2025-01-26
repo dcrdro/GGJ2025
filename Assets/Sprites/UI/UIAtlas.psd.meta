@@ -294,6 +294,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UIAtlas_treeSeed
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 1218
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9128820f6e016324ab702bb8a8b75183
+      internalID: 1916448467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIAtlas_water
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1206
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 264a12c2d37035242ac837fc42269d6b
+      internalID: -882997695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -316,6 +360,8 @@ TextureImporter:
       UIAtlas_presentKey: 1509130626
       UIAtlas_progressBar: -940367808
       UIAtlas_teleport: -2095598053
+      UIAtlas_treeSeed: 1916448467
+      UIAtlas_water: -882997695
       UIAtlas_whiteBox: 1298310528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

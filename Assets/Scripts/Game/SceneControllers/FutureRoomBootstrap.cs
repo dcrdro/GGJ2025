@@ -13,6 +13,7 @@ namespace SceneController
 		
 		public override async UniTask Load(SceneContext sceneContext, IProgress<LoadingProgress> progress)
 		{
+			Desaturate();
 			await LoadRoom(sceneContext, progress);
 		}
 

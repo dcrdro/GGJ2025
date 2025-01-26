@@ -3,6 +3,7 @@ using System.Collections.Generic;
 public class VariableCondition : BaseCondition
 {
 	public List<VariableContext> checkVariables;
+	public BaseCondition and;
 
 	public override bool Satisfied()
 	{
@@ -21,6 +22,6 @@ public class VariableCondition : BaseCondition
 				return false;
 		}
 
-		return true;
+		return and == null || and.Satisfied();
 	}
 }

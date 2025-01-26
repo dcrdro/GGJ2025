@@ -5,18 +5,15 @@ using Random = UnityEngine.Random;
 public class PlatformFlowers : MonoBehaviour
 {
 	[SerializeField] private List<MeshRenderer> renderers;
-	[SerializeField] private int visible;
 	
 	private void Start()
 	{
 		foreach (var meshRenderer in renderers)
 		{
+			if (meshRenderer == null)
+				continue;
 			
-		}
-
-		foreach (var meshRenderer in renderers)
-		{
-			meshRenderer.enabled = Random.value > 0.5f;
+			meshRenderer.enabled = Random.value > 0.4f;
 		}
 	}
 }
