@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 namespace SceneController
 {
-	public class CutSceneController : BaseSceneController
+	public class FinalCutSceneController : BaseSceneController
 	{
 		[SerializeField] private GameObject skipText;
 		[SerializeField] private SerializedSceneInfo nextSceneInfo;
@@ -63,7 +63,6 @@ namespace SceneController
 		public void LoadNextScene()
 		{
 			AudioManager.instance.StopIntroScene();
-			AudioManager.instance.PlayMusic();
 			var context = new HubSceneContext();
 			context.sceneInfo = nextSceneInfo;
 			context.spawnPointName = "Default";

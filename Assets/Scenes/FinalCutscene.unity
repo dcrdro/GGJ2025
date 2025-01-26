@@ -11470,7 +11470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &888222183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11879,7 +11879,6 @@ MonoBehaviour:
   onLeaveScene:
     m_PersistentCalls:
       m_Calls: []
-  eventEmitter: {fileID: 442824958}
 --- !u!4 &1231548239
 Transform:
   m_ObjectHideFlags: 0

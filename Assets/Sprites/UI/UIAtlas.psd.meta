@@ -325,7 +325,7 @@ TextureImporter:
         width: 300
         height: 300
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -334,6 +334,28 @@ TextureImporter:
       bones: []
       spriteID: 264a12c2d37035242ac837fc42269d6b
       internalID: -882997695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIAtlas_menu
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d46c42c9d0997fe45aa7f61869d415d7
+      internalID: -1266112789
       vertices: []
       indices: 
       edges: []
@@ -355,6 +377,7 @@ TextureImporter:
       UIAtlas_border4px: 1950533553
       UIAtlas_dogToy: -1919564834
       UIAtlas_futureKey: 789763825
+      UIAtlas_menu: -1266112789
       UIAtlas_pastKey: -1775907861
       UIAtlas_portrait: 669078751
       UIAtlas_presentKey: 1509130626

@@ -12,6 +12,7 @@ namespace SceneManagement.Splash
 		[SerializeField] private float fadeInTime = 1f;
 		[SerializeField] private float stayTime = 2f;
 		[SerializeField] private float fadeOutTime = 1f;
+		
 
 		public override bool IsVisible()
 		{

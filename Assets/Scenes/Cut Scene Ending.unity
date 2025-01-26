@@ -10517,7 +10517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &150610866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22393,6 +22393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkItem: {fileID: 11400000, guid: 0a66f387b1a7ebb49a8cecd4314c48f8, type: 2}
+  and: {fileID: 0}
 --- !u!114 &370668289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28919,6 +28920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkItem: {fileID: 11400000, guid: 4fb4a99e7cd1a154b9c3fa21513e590e, type: 2}
+  and: {fileID: 0}
 --- !u!114 &548083255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34895,6 +34897,10 @@ PrefabInstance:
     - target: {fileID: 4347588980904223863, guid: e0e23176bc29f9d4489df51042dea467, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347588980904223863, guid: e0e23176bc29f9d4489df51042dea467, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7539592429423950748, guid: e0e23176bc29f9d4489df51042dea467, type: 3}
       propertyPath: m_LocalPosition.x
@@ -64657,6 +64663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkItem: {fileID: 11400000, guid: 125cde15173d7174aa7e06ae0ad9e442, type: 2}
+  and: {fileID: 0}
 --- !u!114 &1508870972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65462,6 +65469,10 @@ PrefabInstance:
     - target: {fileID: 3677534941034581577, guid: e43b97bafe086b5449e66ddc86109097, type: 3}
       propertyPath: m_Name
       value: Trap
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677534941034581577, guid: e43b97bafe086b5449e66ddc86109097, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4054060072035439859, guid: e43b97bafe086b5449e66ddc86109097, type: 3}
       propertyPath: m_LocalPosition.x
@@ -82501,8 +82512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b201efb8c3e7e494c9b4da5779d3ed0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicParam: 0
-  setMusicArea: 0
+  gameProgress: 0
+  setProgressOnStart: 0
 --- !u!1001 &1852361615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85947,6 +85958,10 @@ PrefabInstance:
     - target: {fileID: 4775431989082368784, guid: 7bf1fc51703486049881ccf34d0db8c0, type: 3}
       propertyPath: m_Name
       value: Mine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775431989082368784, guid: 7bf1fc51703486049881ccf34d0db8c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5264266764501053866, guid: 7bf1fc51703486049881ccf34d0db8c0, type: 3}
       propertyPath: m_LocalPosition.x
