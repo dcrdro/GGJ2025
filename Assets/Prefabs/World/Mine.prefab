@@ -96,6 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7907254317980951206}
+  - component: {fileID: 8154811760764676700}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged
@@ -120,6 +121,37 @@ Transform:
   - {fileID: 6960365983859229108}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8154811760764676700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5044434285950459008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 372495741
+      Data2: 1222543873
+      Data3: 1356021124
+      Data4: -1956877448
+    Path: event:/Objects/Mine
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1.0380325
+  OverrideMaxDistance: 4.8426824
 --- !u!1001 &2996654376105193502
 PrefabInstance:
   m_ObjectHideFlags: 0

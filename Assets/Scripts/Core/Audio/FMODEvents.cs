@@ -18,6 +18,7 @@ public class FMODEvents : MonoBehaviour
     public EventReference buttonMenu;
     [Header("Music")] 
     public EventReference mainTheme;
+    public EventReference ambience;
 
 
     // public static FMODEvents instance { get; private set; }

@@ -357,11 +357,18 @@ MonoBehaviour:
     Path: event:/Character/Player Footsteps
   jump:
     Guid:
-      Data1: -1208686611
-      Data2: 1176560889
-      Data3: -827470181
-      Data4: 1351713514
-    Path: event:/Character/Player Footsteps
+      Data1: 814199484
+      Data2: 1092833562
+      Data3: 1742901405
+      Data4: -31097475
+    Path: event:/Character/Player Jump
+  land:
+    Guid:
+      Data1: -1793063166
+      Data2: 1257824276
+      Data3: 1361457853
+      Data4: -453923809
+    Path: event:/Character/Player Land
 --- !u!114 &2479705660953705914
 MonoBehaviour:
   m_ObjectHideFlags: 0

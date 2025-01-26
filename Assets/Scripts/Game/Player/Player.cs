@@ -34,6 +34,7 @@ namespace Game.Player
 
 		public IObservableVar<State> CurrentState => _state;
 		public event Action OnJump;
+		public event Action OnLand;
 		public bool IsGrounded => isGrounded;
 
 		[Header("Ground Check")] [SerializeField]
@@ -57,7 +58,7 @@ namespace Game.Player
 		private Rigidbody rb;
 		[SerializeField] private Animator animator;
 		[SerializeField] private Animator shadow;
-		private bool isGrounded;
+		private bool isGrounded, wasGrounded;
 
 		protected override void OnAwake()
 		{
@@ -188,6 +189,13 @@ namespace Game.Player
 		private void HandleJump()
 		{
 			isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
+
+			if (isGrounded && !wasGrounded)
+			{
+				OnLand?.Invoke();
+			}
+
+			wasGrounded = isGrounded;
 
 			if (!isGrounded)
 				return;

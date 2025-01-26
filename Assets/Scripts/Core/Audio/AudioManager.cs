@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private StudioBankLoader bankLoaderPrefab;
     private string _sceneName;
     private EventInstance ost;
+    private EventInstance amb;
     //private EventInstance ambience;
     private EventInstance buttonHandler;
     private EventInstance buttonClick;
@@ -99,8 +100,8 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //InitializeAmbience(events.ambience);
         InitializeOst(events.mainTheme);
+        InitializeAmb(events.ambience);
     }
 
     public void Update()
@@ -138,11 +139,21 @@ public class AudioManager : MonoBehaviour
         ost = CreateInstance(ostReference);
         ost.start();
     }
+    public void InitializeAmb(EventReference ostReference)
+    {
+        amb = CreateInstance(ostReference);
+        amb.start();
+    }
     
     public void SetMusicParam(MusicParam param)
     {
         //ambience.setParameterByName("AMBIENCE", (float)area);
         ost.setParameterByName("Dynamic Music", (int)param);
+    }
+        public void SetAmbientParam(MusicParam param)
+    {
+        //ambience.setParameterByName("AMBIENCE", (float)area);
+        ost.setParameterByName("Ambient Select", (int)param);
     }
 
     public void InitializeMenuButtonHandler() 

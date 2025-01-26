@@ -825,7 +825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5168413010315402099, guid: 86d596a7aa0d2784c8556d0744129b61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.137593
+      value: 1.1385385
       objectReference: {fileID: 0}
     - target: {fileID: 5168413010315402099, guid: 86d596a7aa0d2784c8556d0744129b61, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8056,7 +8056,7 @@ Transform:
   m_GameObject: {fileID: 568743135}
   serializedVersion: 2
   m_LocalRotation: {x: 0.03489949, y: 0, z: 0, w: 0.99939084}
-  m_LocalPosition: {x: 1.137593, y: 2.8355126, z: -7.1096497}
+  m_LocalPosition: {x: 1.1385385, y: 2.8355126, z: -7.1096497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8693,6 +8693,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 755584193359262587, guid: 844ad189089180f4d86dba9ea5d31dbb, type: 3}
+      propertyPath: musicParam
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8884640933894907418, guid: 844ad189089180f4d86dba9ea5d31dbb, type: 3}
       propertyPath: m_Name
       value: FMODSoundManager

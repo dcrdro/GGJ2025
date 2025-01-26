@@ -11,9 +11,11 @@ namespace Game.Player
 	{
 		[SerializeField] private EventReference footsteps; 
 		[SerializeField] private EventReference jump; 
+		[SerializeField] private EventReference land; 
 		private Player _player;
 		private EventInstance footstepInstance;
 		private EventInstance jumpInstance;
+		private EventInstance landInstance;
 
 		//[SerializeField] private float sceneFootstepsValue;
 
@@ -21,6 +23,7 @@ namespace Game.Player
 		{
 			footstepInstance = RuntimeManager.CreateInstance(footsteps);
 			jumpInstance = RuntimeManager.CreateInstance(jump);
+			landInstance = RuntimeManager.CreateInstance(land);
 		}
 
 		private void Start()
@@ -29,6 +32,7 @@ namespace Game.Player
 			_player.CurrentState.OnValueChanged += HandlePlayerState;
 
 			_player.OnJump += HandleJump;
+			_player.OnLand += HandleLand;
 			
 			footstepInstance.set3DAttributes(transform.position.To3DAttributes());
 			jumpInstance.set3DAttributes(transform.position.To3DAttributes());
@@ -68,6 +72,17 @@ namespace Game.Player
 			}
 			jumpInstance.set3DAttributes(transform.position.To3DAttributes());
 			jumpInstance.start();
+		}
+		
+		private void HandleLand()
+		{
+			landInstance.getPlaybackState(out PLAYBACK_STATE landPlaybackState);
+			if (landPlaybackState == PLAYBACK_STATE.PLAYING)
+			{
+                landInstance.stop(STOP_MODE.IMMEDIATE);
+			}
+			landInstance.set3DAttributes(transform.position.To3DAttributes());
+            landInstance.start();
 		}
 
 		private void UpdateSounds()
