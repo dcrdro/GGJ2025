@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,11 +28,11 @@ public class VolumeSlider : MonoBehaviour
             case VolumeType.MASTER:
                 volumeSlider.value = AudioManager.instance.masterVolume;
                 break; 
-            // case VolumeType.AMBIENCE:
-            //     volumeSlider.value = AudioManager.instance.ambienceVolume;
-            //     break;
+            case VolumeType.AMBIENCE:
+                volumeSlider.value = AudioManager.instance.ambienceVolume;
+                break;
             case VolumeType.MUSIC:
-                volumeSlider.value = AudioManager.instance.musicVolume ;
+                volumeSlider.value = AudioManager.instance.musicVolume;
                 break;
             case VolumeType.SFX:
                 volumeSlider.value = AudioManager.instance.sfxVolume;
@@ -49,9 +47,9 @@ public class VolumeSlider : MonoBehaviour
             case VolumeType.MASTER:
                 AudioManager.instance.masterVolume = volumeSlider.value;
                 break;
-            // case VolumeType.AMBIENCE:
-            //     AudioManager.instance.ambienceVolume = volumeSlider.value;
-            //     break;
+            case VolumeType.AMBIENCE:
+                AudioManager.instance.ambienceVolume = volumeSlider.value;
+                break;
             case VolumeType.MUSIC:
                 AudioManager.instance.musicVolume = volumeSlider.value;
                 break;

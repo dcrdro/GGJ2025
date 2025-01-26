@@ -31,7 +31,10 @@ namespace SceneManagement.Splash
 				yield return splashScreen.FadeIn();
 				while (!splashScreen.Ready)
 					yield return _delay;
-				yield return splashScreen.FadeOut();
+				if (splashScreen.allowFadeOut)
+				{
+					yield return splashScreen.FadeOut();
+				}
 			}
 			
 			// Switch to MainMenu scene
