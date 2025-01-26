@@ -32,7 +32,6 @@ namespace SceneController
 			{
 				Destroy(VariableSystem.Instance.gameObject);
 			}
-			AudioManager.instance.PlayIntroScene();
 		}
 
 		private void Update()
@@ -62,7 +61,6 @@ namespace SceneController
 
 		public void LoadNextScene()
 		{
-			AudioManager.instance.StopIntroScene();
 			var context = new HubSceneContext();
 			context.sceneInfo = nextSceneInfo;
 			context.spawnPointName = "Default";

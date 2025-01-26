@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
+using Core.Audio;
 using Cysharp.Threading.Tasks;
 using SceneManagement;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Playables;
 
 namespace SceneController
 {
@@ -13,6 +15,9 @@ namespace SceneController
 		[SerializeField] private SerializedSceneInfo nextSceneInfo;
 		[SerializeField] private float waitSkipTimer = 3;
 		[SerializeField] private UnityEvent onLeaveScene;
+		[SerializeField] private PlayableDirector timelineDirector;
+		[SerializeField] private FMODCutScenePlayer cutScenePlayer;
+		
 		
 		private bool _skip;
 		private bool _loadComplete;
@@ -32,7 +37,6 @@ namespace SceneController
 			{
 				Destroy(VariableSystem.Instance.gameObject);
 			}
-			AudioManager.instance.PlayIntroScene();
 		}
 
 		private void Update()
@@ -51,7 +55,7 @@ namespace SceneController
 			}
 		}
 
-		private IEnumerator showSkipCutSceneCor()
+		private IEnumerator ShowSkipCutSceneCor()
 		{
 			yield return new WaitForSecondsRealtime(waitSkipTimer);
 			if (skipText != null)
@@ -62,8 +66,6 @@ namespace SceneController
 
 		public void LoadNextScene()
 		{
-			AudioManager.instance.StopIntroScene();
-			AudioManager.instance.PlayMusic();
 			var context = new HubSceneContext();
 			context.sceneInfo = nextSceneInfo;
 			context.spawnPointName = "Default";
@@ -72,7 +74,11 @@ namespace SceneController
 
 		public override async UniTask Load(SceneContext sceneContext, IProgress<LoadingProgress> progress)
 		{
+			await cutScenePlayer.LoadBanks();
+			progress.Report(new LoadingProgress() { progress = 0.3f });
 			await UniTask.Yield();
+			progress.Report(new LoadingProgress() { progress = 0.4f });
+			await UniTask.Delay(100);
 			progress.Report(new LoadingProgress() { progress = 1f });
 		}
 
@@ -84,8 +90,10 @@ namespace SceneController
 
 		public override void OnLoadComplete()
 		{
-			_cutSceneCor = StartCoroutine(showSkipCutSceneCor());
+			_cutSceneCor = StartCoroutine(ShowSkipCutSceneCor());
 			_loadComplete = true;
+			timelineDirector.Play();
+			cutScenePlayer.Play();
 		}
 	}
 }

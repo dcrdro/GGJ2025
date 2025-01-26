@@ -10,9 +10,9 @@ public class FMODEvents : Singleton<FMODEvents>
     public EventReference death;
     public EventReference respawn;
 
-    [Header("Cutscene")]
-    public EventReference intro;
-    public EventReference final;
+    // [Header("Cutscene")]
+    // public EventReference intro;
+    // public EventReference final;
     
     [Header("UI")] 
     

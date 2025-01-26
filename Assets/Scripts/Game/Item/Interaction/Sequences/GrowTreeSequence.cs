@@ -50,7 +50,6 @@ public class GrowTreeSequence : BaseSequence
 				if (currentDissolve < 1f)
 				{
 					leafInstance.SetFloat(Dissolve, currentDissolve);
-					Debug.Log(currentDissolve);
 				}
 			}
 		}

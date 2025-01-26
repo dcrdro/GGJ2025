@@ -7724,18 +7724,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1839008012}
-        m_TargetAssemblyTypeName: FMODSetGameProgress, Assembly-CSharp
-        m_MethodName: SetPresentComplete
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1589444759}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -9133,18 +9121,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1839008012}
-        m_TargetAssemblyTypeName: FMODSetGameProgress, Assembly-CSharp
-        m_MethodName: SetPastComplete
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15958,6 +15934,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1623307591}
+        m_TargetAssemblyTypeName: FMODSetGameProgress, Assembly-CSharp
+        m_MethodName: SetPastComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   delayTime: 1
   chainedSequence: {fileID: 330377806}
 --- !u!1001 &825722508
@@ -17832,6 +17820,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1623307591}
+        m_TargetAssemblyTypeName: FMODSetGameProgress, Assembly-CSharp
+        m_MethodName: SetPresentComplete
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -26729,6 +26729,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4769626246487752003, guid: ce5d9ca502da60d438c3bfe39beece24, type: 3}
   m_PrefabInstance: {fileID: 1616484525}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1623307589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1623307590}
+  - component: {fileID: 1623307591}
+  m_Layer: 0
+  m_Name: GAME_PROGRESS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1623307590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623307589}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1839008011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1623307591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623307589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b201efb8c3e7e494c9b4da5779d3ed0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameProgress: 0
+  setProgressOnStart: 0
 --- !u!1001 &1623340484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33161,7 +33207,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1839008011}
-  - component: {fileID: 1839008012}
   m_Layer: 0
   m_Name: Interaction
   m_TagString: Untagged
@@ -33192,22 +33237,9 @@ Transform:
   - {fileID: 869743210}
   - {fileID: 447202604}
   - {fileID: 1589444761}
+  - {fileID: 1623307590}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1839008012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839008010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b201efb8c3e7e494c9b4da5779d3ed0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameProgress: 0
-  setProgressOnStart: 0
 --- !u!1001 &1852361615
 PrefabInstance:
   m_ObjectHideFlags: 0

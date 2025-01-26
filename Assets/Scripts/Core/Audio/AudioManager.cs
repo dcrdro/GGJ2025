@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
@@ -27,10 +28,6 @@ public class AudioManager : MonoBehaviour
     private EventInstance shortCircuitDone;
     private StudioBankLoader _bank;
     
-    
-    private EventInstance introCutscene;
-    private EventInstance finalCutScene;
-
     [Header("Volume")]
     [Range(0, 1)]
     public float masterVolume =1;
@@ -65,14 +62,15 @@ public class AudioManager : MonoBehaviour
         ambienceBus = RuntimeManager.GetBus("bus:/Amb");
         musicBus = RuntimeManager.GetBus("bus:/Music");
         sfxBus = RuntimeManager.GetBus("bus:/Sfx");
-        
-        InitializeOst(events.mainTheme);
-        InitializeAmb(events.ambience);
-        introCutscene = CreateInstance(events.intro);
-        finalCutScene = CreateInstance(events.final);
     }
 
-    
+    private void Start()
+    {
+        InitializeOst(events.mainTheme);
+        InitializeAmb(events.ambience);
+    }
+
+
     private void OnDestroy()
     {
         if (instance == this)
@@ -112,28 +110,6 @@ public class AudioManager : MonoBehaviour
         {
             ost.start();
         }
-    }
-
-    public void PlayIntroScene()
-    {
-        StopMusic();
-        introCutscene.start();
-    }
-
-    public void StopIntroScene()
-    {
-        introCutscene.stop(STOP_MODE.IMMEDIATE);
-    }
-    
-    public void PlayFinalScene()
-    {
-        StopMusic();
-        finalCutScene.start();
-    }
-
-    public void StopFinalScene()
-    {
-        finalCutScene.stop(STOP_MODE.IMMEDIATE);
     }
 
     public void Update()
