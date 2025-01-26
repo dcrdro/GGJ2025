@@ -13,6 +13,7 @@ public class TrapInteraction : Interaction
 	
 	public override void Interact(VariableSystem variableSystem)
 	{
+		onInteract?.Invoke();
 		StartCoroutine(TrapCor());
 	}
 
