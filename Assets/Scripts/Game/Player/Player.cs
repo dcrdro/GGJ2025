@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections;
-using Cysharp.Threading.Tasks;
-using SceneManagement;
 using UnityEngine;
 
 namespace Game.Player
@@ -57,7 +55,8 @@ namespace Game.Player
 		private Coroutine _jumpCor;
 
 		private Rigidbody rb;
-		private Animator animator;
+		[SerializeField] private Animator animator;
+		[SerializeField] private Animator shadow;
 		private bool isGrounded;
 
 		protected override void OnAwake()
@@ -110,18 +109,22 @@ namespace Game.Player
 				
 				case State.Interact:
 					animator.SetTrigger(Interact);
+					shadow.SetTrigger(Interact);
 					break;
 
 				case State.TakeItem:
 					animator.SetTrigger(TakeItem);
+					shadow.SetTrigger(TakeItem);
 					break;
 
 				case State.UseItem:
 					animator.SetTrigger(UseItem);
+					shadow.SetTrigger(UseItem);
 					break;
 				
 				case State.Damage:
 					animator.SetTrigger(Die);
+					shadow.SetTrigger(Die);
 					//yield return DamageCor();
 					break;
 
@@ -201,8 +204,12 @@ namespace Game.Player
 
 		private void UpdateAnimations()
 		{
-			animator.SetBool(IsMoving, Mathf.Abs(rb.linearVelocity.x) > 0.001f);
+			var isMoving = Mathf.Abs(rb.linearVelocity.x) > 0.001f;
+			animator.SetBool(IsMoving, isMoving);
 			animator.SetBool(IsJumping, !isGrounded);
+			
+			shadow.SetBool(IsMoving, isMoving);
+			shadow.SetBool(IsJumping, !isGrounded);
 		}
 		
 		public void Disappear()
@@ -219,14 +226,16 @@ namespace Game.Player
 
 		public void TakeDamage()
 		{
-			animator.SetTrigger("Die");
+			animator.SetTrigger(Die);
+			shadow.SetTrigger(Die);
 			//_ = Restart();
 		}
 
-		private async UniTask Restart()
-		{
-			await UniTask.Delay(1000);
-			SceneLoader.ReloadScene();
-		}
+		// private async UniTask Restart()
+		// {
+		// 	await UniTask.Delay(1000);
+		// 	SceneLoader.ReloadScene();
+		// }
+		
 	}
 }
