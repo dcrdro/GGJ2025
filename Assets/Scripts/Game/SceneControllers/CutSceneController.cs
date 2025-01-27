@@ -92,8 +92,45 @@ namespace SceneController
 		{
 			_cutSceneCor = StartCoroutine(ShowSkipCutSceneCor());
 			_loadComplete = true;
-			timelineDirector.Play();
-			cutScenePlayer.Play();
+
+			if (Application.isFocused)
+			{
+				timelineDirector.Play();
+				cutScenePlayer.Play();
+			}
+		}
+		
+		private void OnApplicationFocus(bool hasFocus)
+		{
+			Debug.Log($"OnApplicationFocus {hasFocus}");
+			if (hasFocus)
+			{
+				if (cutScenePlayer.IsPaused())
+				{
+					cutScenePlayer.ResumePlaying();
+					timelineDirector.Resume();
+					return;
+				}
+				
+				if (!cutScenePlayer.IsPlaying())
+				{
+					timelineDirector.Play();
+					cutScenePlayer.Play();
+				}
+			}
+			else
+			{
+				if (!cutScenePlayer.IsPaused())
+				{
+					cutScenePlayer.PausePlaying();
+					timelineDirector.Pause();
+				}
+			}
+		}
+		
+		private void OnApplicationPause(bool paused)
+		{
+			Debug.Log($"OnApplicationPause {paused}");
 		}
 	}
 }

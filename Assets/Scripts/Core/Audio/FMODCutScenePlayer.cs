@@ -29,7 +29,7 @@ namespace Core.Audio
 		{
 			bank = Instantiate(bankPrefab);
 			bank.Load();
-			
+
 			// Keep yielding the co-routine until all the bank loading is done
 			// (for platforms with asynchronous bank loading)
 			while (!RuntimeManager.HaveAllBanksLoaded)
@@ -42,6 +42,7 @@ namespace Core.Audio
 			{
 				await UniTask.Yield();
 			}
+
 			Debug.Log("Banks Loaded");
 		}
 
@@ -53,13 +54,14 @@ namespace Core.Audio
 				clipInstance.start();
 			}
 		}
-
-		private void OnApplicationFocus(bool hasFocus)
+		
+		public bool IsPlaying()
 		{
-			if (!hasFocus) 
-				return;
-
-			Play();
+			if (!clipInstance.isValid())
+				return false;
+			
+			clipInstance.getPlaybackState(out var state);
+			return state == PLAYBACK_STATE.PLAYING;
 		}
 
 		public void Play()
@@ -67,11 +69,59 @@ namespace Core.Audio
 			if (!clipInstance.isValid())
 			{
 				clipInstance = RuntimeManager.CreateInstance(clip);
+				clipInstance.start();
+				return;
 			}
+
 			clipInstance.getPlaybackState(out var state);
 			if (state == PLAYBACK_STATE.STOPPED)
 			{
 				clipInstance.start();
+				return;
+			}
+
+			clipInstance.getPaused(out var isPaused);
+			if (isPaused)
+			{
+				clipInstance.setPaused(false);
+			}
+		}
+
+		public bool IsPaused()
+		{
+			if (!clipInstance.isValid())
+				return false;
+			
+			clipInstance.getPaused(out var isPaused);
+			return !isPaused;
+		}
+		
+
+		public void PausePlaying()
+		{
+			if (!clipInstance.isValid())
+				return;
+			
+			clipInstance.getPlaybackState(out var state);
+			if (state == PLAYBACK_STATE.STOPPED)
+				return;
+
+			clipInstance.getPaused(out var isPaused);
+			if (!isPaused)
+			{
+				clipInstance.setPaused(true);
+			}
+		}
+		
+		public void ResumePlaying()
+		{
+			if (!clipInstance.isValid())
+				return;
+
+			clipInstance.getPaused(out var isPaused);
+			if (isPaused)
+			{
+				clipInstance.setPaused(false);
 			}
 		}
 
@@ -89,10 +139,7 @@ namespace Core.Audio
 			clipInstance.release();
 		}
 		
-		private void OnApplicationPause(bool hasFocus)
-		{
-			
-		}
+		
 
 		private void OnDestroy()
 		{
