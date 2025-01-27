@@ -18,6 +18,7 @@ public class GrowTreeSequence : BaseSequence
 	[SerializeField] private float saturationTime = 2f;
 	[SerializeField] private GameObject oldTree;
 	[SerializeField] private GameObject newTree;
+    [SerializeField] private GameObject finalTree;
 	[SerializeField] private GameObject treeView;
 	[SerializeField] private float targetScale;
 	[SerializeField] private GameObject sphere;
@@ -28,8 +29,10 @@ public class GrowTreeSequence : BaseSequence
 	[SerializeField] private Material leafInstance;
 	private bool enableLeaf;
 	private bool enableSaturation;
+	private bool additionalNotInvoked;
 	private float currentDissolve = 1f;
 	private float saturation;
+	
 
 	private void Awake()
 	{
@@ -73,17 +76,20 @@ public class GrowTreeSequence : BaseSequence
 		enableLeaf = true;
 		currentDissolve = 1.3f;
 		leafInstance.SetFloat(Dissolve, 1f);
-		yield return Scale();
-	}
-
-	private IEnumerator Scale()
-	{
+		
 		var tween = treeView.transform.DOScale(new Vector3(targetScale, targetScale, targetScale), 3f).SetEase(Ease.OutSine);
 		yield return tween;
+		yield return new WaitForSeconds(0.5f);
 		additional.Invoke();
 		yield return new WaitForSeconds(1f);
+		enableSaturation = true;
+		yield return new WaitForSeconds(1.5f);
+		
 		sphere.gameObject.SetActive(true);
+		newTree.SetActive(false);
+		finalTree.SetActive(true);
+		yield return new WaitForSeconds(1f);
 	}
-	
+
 	public override float TotalTime => 4f;
 }

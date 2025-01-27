@@ -69,6 +69,7 @@ namespace SceneController
 			var context = new HubSceneContext();
 			context.sceneInfo = nextSceneInfo;
 			context.spawnPointName = "Default";
+			context.showTutorial = true;
 			SceneLoader.LoadScene(context);
 		}
 

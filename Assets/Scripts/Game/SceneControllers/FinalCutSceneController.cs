@@ -4,85 +4,72 @@ using Cysharp.Threading.Tasks;
 using SceneManagement;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Playables;
+using UnityEngine.UI;
 
 namespace SceneController
 {
 	public class FinalCutSceneController : BaseSceneController
 	{
-		[SerializeField] private GameObject skipText;
-		[SerializeField] private SerializedSceneInfo nextSceneInfo;
-		[SerializeField] private float waitSkipTimer = 3;
-		[SerializeField] private UnityEvent onLeaveScene;
+		[SerializeField] private PlayableDirector timeline;
 		
-		private bool _skip;
-		private bool _loadComplete;
-		private Coroutine _cutSceneCor;
+		[SerializeField] private Scrollbar scrollbar;
+		[SerializeField] private GameObject creditsPanel;
+		[SerializeField] private Button exit;
+		[SerializeField] private float speedScrollSpeed;
+		[SerializeField] private SerializedSceneInfo nextSceneInfo;
 
+
+		private float _timer;
+		private bool _cutSceneComplete;
+		
 		private void Awake()
 		{
-			if (skipText != null)
-			{
-				skipText.gameObject.SetActive(false);
-			}
+			exit.onClick.AddListener(OnExitButtonClick);
+			creditsPanel.gameObject.SetActive(false);
 		}
-
-		private void Start()
-		{
-			if (VariableSystem.Instance != null)
-			{
-				Destroy(VariableSystem.Instance.gameObject);
-			}
-		}
-
+		
 		private void Update()
 		{
-			if (_skip)
+			if (!_cutSceneComplete)
 				return;
 
-			if (!_loadComplete)
-				return;
-
-			if (Input.GetKeyDown(KeyCode.Space))
-			{
-				_skip = true;
-				StopCoroutine(_cutSceneCor);
-				LoadNextScene();
-			}
+			_timer += Mathf.Clamp01(Time.deltaTime * speedScrollSpeed);
+			scrollbar.value = 1f-_timer;
 		}
-
-		private IEnumerator showSkipCutSceneCor()
-		{
-			yield return new WaitForSecondsRealtime(waitSkipTimer);
-			if (skipText != null)
-			{
-				skipText.gameObject.SetActive(true);
-			}
-		}
-
-		public void LoadNextScene()
-		{
-			var context = new HubSceneContext();
-			context.sceneInfo = nextSceneInfo;
-			context.spawnPointName = "Default";
-			SceneLoader.LoadScene(context);
-		}
-
+		
 		public override async UniTask Load(SceneContext sceneContext, IProgress<LoadingProgress> progress)
 		{
 			await UniTask.Yield();
 			progress.Report(new LoadingProgress() { progress = 1f });
 		}
-
-		public override async UniTask Unload()
-		{
-			onLeaveScene.Invoke();
-			await UniTask.Yield();
-		}
-
+		
 		public override void OnLoadComplete()
 		{
-			_cutSceneCor = StartCoroutine(showSkipCutSceneCor());
-			_loadComplete = true;
+			if (VariableSystem.Instance != null)
+			{
+				Destroy(VariableSystem.Instance.gameObject);
+			}
+			AudioManager.instance.StopMusic();
+			AudioManager.instance.PlayFinalCutScene();
+			timeline.Play();
+		}
+
+		[ContextMenu("Complete Animation")]
+		public void OnCompleteAnimation()
+		{
+			_cutSceneComplete = true;
+			creditsPanel.gameObject.SetActive(true);	
+		}
+
+		private void OnExitButtonClick()
+		{
+			Destroy(AudioManager.instance.gameObject);
+			Destroy(VariableSystem.Instance.gameObject);
+			
+			var context = new SceneContext();
+			context.sceneInfo = nextSceneInfo;
+			SceneLoader.LoadScene(context);
 		}
 	}
 }

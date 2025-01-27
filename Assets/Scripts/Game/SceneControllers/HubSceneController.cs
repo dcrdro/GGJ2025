@@ -12,7 +12,9 @@ namespace SceneController
 		[SerializeField] private VariableSystem variableSystem;
 		[SerializeField] private PlayerSpawner playerSpawner;
 		[SerializeField] private Player playerController;
-
+		[SerializeField] private SerializedSceneInfo nextSceneInfo;
+		[SerializeField] private MoveTutorial moveTutorial;
+		
 		private bool alreadyEntered;
 		private bool doAppear;
 
@@ -39,11 +41,13 @@ namespace SceneController
 			await Load(null, progress);
 		}
 
-		//TODO save data for reload scene 
-		// private HubSceneContext _savedSceneContext;
-		// private VariableSystem.Data _savedVariableSystem;
-		// private Inventory.Data _savedInventory;
-
+		[ContextMenu("Goto final")]
+		public void GotoFinalCutScene()
+		{
+			var nextSceneContext = new RoomSceneContext();
+			nextSceneContext.sceneInfo = nextSceneInfo;
+			SceneLoader.LoadScene(nextSceneContext);
+		}
 
 		public override async UniTask Load(SceneContext sceneContext, IProgress<LoadingProgress> progress)
 		{
@@ -57,6 +61,10 @@ namespace SceneController
             
             if (sceneContext is HubSceneContext hubSceneContext)
             {
+	            if (hubSceneContext.showTutorial)
+	            {
+		            moveTutorial.Init(hubSceneContext.showTutorial);
+	            }
 	            //TODO first run
 	            // var location = playerSpawner.GetSpawnLocation(hubSceneContext.spawnPointName);
 	            // playerController.transform.position = location.position;

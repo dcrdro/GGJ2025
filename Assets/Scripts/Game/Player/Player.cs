@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using SceneController;
 using UnityEngine;
 
 namespace Game.Player
@@ -185,6 +186,7 @@ namespace Game.Player
 
 			if (horizontalInput != 0)
 			{
+				MoveTutorial.isPlayerMoved = true;
 				view.transform.right = horizontalInput > 0f 
 					? Vector3.right : Vector3.left; 
 			}

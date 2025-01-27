@@ -11,21 +11,14 @@ public class AudioManager : MonoBehaviour
     public FMODEvents events;
     [SerializeField] private StudioBankLoader bankLoaderPrefab;
     private string _sceneName;
+    
     private EventInstance ost;
     private EventInstance amb;
-    //private EventInstance ambience;
     private EventInstance buttonHandler;
     private EventInstance buttonClick;
     private EventInstance buttonsClick;
-    private EventInstance lockClick;
-    private EventInstance lockFail;
-    private EventInstance lockDone;
-    private EventInstance lockOpen;
-    private EventInstance fabricatorAnim;
-    private EventInstance extinguish;
-    private EventInstance rootGrowth;
-    private EventInstance shortCircuit;
-    private EventInstance shortCircuitDone;
+    private EventInstance finalCutScene;
+    
     private StudioBankLoader _bank;
     
     [Header("Volume")]
@@ -70,31 +63,41 @@ public class AudioManager : MonoBehaviour
         InitializeAmb(events.ambience);
     }
 
+    private void Cleanup()
+    {
+        if (ost.isValid()) ost.clearHandle(); 
+        if (amb.isValid()) amb.clearHandle(); 
+        if (buttonHandler.isValid()) buttonHandler.clearHandle(); 
+        if (buttonClick.isValid()) buttonClick.clearHandle(); 
+        if (buttonsClick.isValid()) buttonsClick.clearHandle(); 
+        if (finalCutScene.isValid()) finalCutScene.clearHandle(); 
+    }
 
     private void OnDestroy()
     {
-        if (instance == this)
-        {
-            if (_bank != null)
-            {
-                _bank.Unload();
-                Destroy(_bank.gameObject);
-                _bank = null;
-            }
-            //Debug.Log($"Clear instance OnDestroy {gameObject.name}");
-            instance = null;
-        }
-    }
-
-    private void OnApplicationQuit()
-    {
-        //Debug.Log($"Clear instance OnApplicationQuit {gameObject.name}");
+        if (instance != this) 
+            return;
+        
         if (_bank != null)
         {
             _bank.Unload();
             Destroy(_bank.gameObject);
             _bank = null;
         }
+
+        Cleanup();
+        instance = null;
+    }
+
+    private void OnApplicationQuit()
+    {
+        if (_bank != null)
+        {
+            _bank.Unload();
+            Destroy(_bank.gameObject);
+            _bank = null;
+        }
+        Cleanup();
         instance = null;
     }
 
@@ -103,6 +106,24 @@ public class AudioManager : MonoBehaviour
         ost.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
     
+    public void PlayFinalCutScene()
+    {
+        if (!finalCutScene.isValid())
+        {
+            finalCutScene = CreateInstance(events.final);
+        }
+
+        finalCutScene.start();
+    }
+
+    public void StopFinalCutScene()
+    {
+        if (!finalCutScene.isValid())
+            return;
+        
+        finalCutScene.stop(STOP_MODE.IMMEDIATE);
+    }
+
     public void PlayMusic()
     {
         var ostPlayback = ost.getPlaybackState(out var state);
