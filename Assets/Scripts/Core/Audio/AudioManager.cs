@@ -63,10 +63,27 @@ public class AudioManager : MonoBehaviour
         InitializeAmb(events.ambience);
     }
 
+    public static void Shutdown()
+    {
+        if (instance == null)
+            return;
+        Destroy(instance.gameObject);
+    }
+
     private void Cleanup()
     {
-        if (ost.isValid()) ost.clearHandle(); 
-        if (amb.isValid()) amb.clearHandle(); 
+        if (ost.isValid())
+        {
+            ost.stop(STOP_MODE.IMMEDIATE);
+            ost.clearHandle();
+        }
+
+        if (amb.isValid())
+        {
+            amb.stop(STOP_MODE.IMMEDIATE);
+            amb.clearHandle();
+        } 
+        
         if (buttonHandler.isValid()) buttonHandler.clearHandle(); 
         if (buttonClick.isValid()) buttonClick.clearHandle(); 
         if (buttonsClick.isValid()) buttonsClick.clearHandle(); 

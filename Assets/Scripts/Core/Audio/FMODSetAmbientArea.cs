@@ -6,6 +6,6 @@ public class FMODSetAmbientArea : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.instance.SetAmbientParam(AmbientParam.Hub);
+        AudioManager.instance.SetAmbientParam(ambientParam);
     }
 }

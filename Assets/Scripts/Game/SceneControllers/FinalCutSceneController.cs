@@ -50,8 +50,12 @@ namespace SceneController
 			{
 				Destroy(VariableSystem.Instance.gameObject);
 			}
-			AudioManager.instance.StopMusic();
-			AudioManager.instance.PlayFinalCutScene();
+
+			if (AudioManager.instance != null)
+			{
+				AudioManager.instance.StopMusic();
+				AudioManager.instance.PlayFinalCutScene();
+			}
 			timeline.Play();
 		}
 
@@ -64,8 +68,11 @@ namespace SceneController
 
 		private void OnExitButtonClick()
 		{
-			Destroy(AudioManager.instance.gameObject);
-			Destroy(VariableSystem.Instance.gameObject);
+			AudioManager.Shutdown();
+			if (VariableSystem.Instance != null)
+			{
+				Destroy(VariableSystem.Instance.gameObject);
+			}
 			
 			var context = new SceneContext();
 			context.sceneInfo = nextSceneInfo;
