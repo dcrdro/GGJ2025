@@ -98,6 +98,8 @@ namespace SceneController
 			{
 				timelineDirector.Play();
 				cutScenePlayer.Play();
+				cutScenePlayer.StopPlaying();
+				cutScenePlayer.Play();
 			}
 		}
 		
@@ -116,6 +118,8 @@ namespace SceneController
 				if (!cutScenePlayer.IsPlaying())
 				{
 					timelineDirector.Play();
+					cutScenePlayer.Play();
+					cutScenePlayer.StopPlaying();
 					cutScenePlayer.Play();
 				}
 			}

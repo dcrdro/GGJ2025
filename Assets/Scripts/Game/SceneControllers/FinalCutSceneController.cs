@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using SceneManagement;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace SceneController
@@ -13,7 +14,8 @@ namespace SceneController
 		
 		[SerializeField] private Scrollbar scrollbar;
 		[SerializeField] private GameObject creditsPanel;
-		[SerializeField] private Button exit;
+		[SerializeField] private Button restartButton;
+		[SerializeField] private Button quitGameButton;
 		[SerializeField] private float speedScrollSpeed;
 		[SerializeField] private SerializedSceneInfo nextSceneInfo;
 
@@ -23,7 +25,8 @@ namespace SceneController
 		
 		private void Awake()
 		{
-			exit.onClick.AddListener(OnExitButtonClick);
+			restartButton.onClick.AddListener(OnRestartButtonClick);
+			quitGameButton.onClick.AddListener(OnQuitGameButtonClick);
 			creditsPanel.gameObject.SetActive(false);
 		}
 		
@@ -64,7 +67,7 @@ namespace SceneController
 			creditsPanel.gameObject.SetActive(true);	
 		}
 
-		private void OnExitButtonClick()
+		private void OnRestartButtonClick()
 		{
 			AudioManager.Shutdown();
 			if (VariableSystem.Instance != null)
@@ -75,6 +78,16 @@ namespace SceneController
 			var context = new SceneContext();
 			context.sceneInfo = nextSceneInfo;
 			SceneLoader.LoadScene(context);
+		}
+		
+		private void OnQuitGameButtonClick()
+		{
+			Time.timeScale = 1;
+#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+#else        
+			Application.Quit();
+#endif
 		}
 	}
 }

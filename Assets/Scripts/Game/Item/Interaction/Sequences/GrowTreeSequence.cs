@@ -23,6 +23,7 @@ public class GrowTreeSequence : BaseSequence
 	[SerializeField] private float targetScale;
 	[SerializeField] private GameObject sphere;
 	[SerializeField] private UnityEvent additional;
+	[SerializeField] private FMODPlaySound playSound;
 	
 
 	private ColorAdjustments _colorAdjustments;
@@ -70,6 +71,7 @@ public class GrowTreeSequence : BaseSequence
 
 	public override IEnumerator Sequence()
 	{
+		playSound.Play();
 		yield return new WaitForSeconds(0.5f);
 		oldTree.SetActive(false);
 		newTree.SetActive(true);

@@ -193,7 +193,7 @@ public class AudioManager : MonoBehaviour
     
     public void SetAmbientParam(AmbientParam param)
     {
-        amb.setParameterByName("Ambient Select", (int)param);
+        amb.setParameterByName("Ambience Select", (int)param);
     }
 
     public void InitializeMenuButtonHandler() 

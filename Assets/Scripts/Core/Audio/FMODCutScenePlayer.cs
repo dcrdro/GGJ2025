@@ -135,8 +135,6 @@ namespace Core.Audio
 			{
 				clipInstance.stop(STOP_MODE.IMMEDIATE);
 			}
-
-			clipInstance.release();
 		}
 		
 		
@@ -144,6 +142,7 @@ namespace Core.Audio
 		private void OnDestroy()
 		{
 			StopPlaying();
+			clipInstance.release();
 			if (bank != null)
 			{
 				bank.Unload();
