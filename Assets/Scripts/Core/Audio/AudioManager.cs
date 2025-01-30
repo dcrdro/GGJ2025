@@ -61,6 +61,7 @@ public class AudioManager : MonoBehaviour
     {
         InitializeOst(events.mainTheme);
         InitializeAmb(events.ambience);
+        finalCutScene = CreateInstance(events.final);
     }
 
     public static void Shutdown()
@@ -125,11 +126,10 @@ public class AudioManager : MonoBehaviour
     
     public void PlayFinalCutScene()
     {
-        if (!finalCutScene.isValid())
-        {
-            finalCutScene = CreateInstance(events.final);
-        }
-
+        finalCutScene.getPlaybackState(out var finalCutState);
+        if (finalCutState == PLAYBACK_STATE.PLAYING)
+            finalCutScene.stop(STOP_MODE.IMMEDIATE);
+        
         finalCutScene.start();
     }
 

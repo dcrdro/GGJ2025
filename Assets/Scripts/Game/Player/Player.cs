@@ -28,6 +28,7 @@ namespace Game.Player
 		public static readonly int TakeItem = Animator.StringToHash("TakeItem");
 		public static readonly int UseItem = Animator.StringToHash("UseItem");
 		public static readonly int Die = Animator.StringToHash("Die");
+		public static readonly int JumpBlend = Animator.StringToHash("JumpBlend");
 
 
 		[Header("Movement Settings")] public float moveSpeed = 5f;
@@ -226,6 +227,8 @@ namespace Game.Player
 		private void UpdateAnimations()
 		{
 			var isMoving = Mathf.Abs(rb.linearVelocity.x) > 0.001f;
+			var jf = rb.linearVelocity.y;
+			animator.SetFloat(JumpBlend, jf);
 			animator.SetBool(IsMoving, isMoving);
 			animator.SetBool(IsJumping, !isGrounded);
 			

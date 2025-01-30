@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using Cysharp.Threading.Tasks;
 using SceneManagement;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Playables;
 using UnityEngine.UI;
 

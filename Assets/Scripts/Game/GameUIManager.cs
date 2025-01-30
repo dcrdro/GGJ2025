@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 public class GameUIManager : UIManager<GameUIManager>
 {
@@ -10,7 +7,6 @@ public class GameUIManager : UIManager<GameUIManager>
 
     public void OnPauseButtonClicked()
     {
-        if (IsPaused) return;
         IsPaused = true;
         inventory.SetActive(false);
         Time.timeScale = 0;
@@ -34,8 +30,6 @@ public class GameUIManager : UIManager<GameUIManager>
 
     public void OnUnpauseButtonClicked()
     {
-        if (!IsPaused) return;
-
         IsPaused = false;
         inventory.SetActive(true);
         Time.timeScale = 1;
@@ -45,16 +39,10 @@ public class GameUIManager : UIManager<GameUIManager>
     public void OnExitGameButtonClicked()
     {
         Time.timeScale = 1;
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else        
         Application.Quit();
-    }
-
-    public void OnMainMenuButtonClicked()
-    {
-        //GameManager.Instance.GoToMainMenu();
-    }
-
-    public void OnRestartButtonClicked()
-    {
-        //GameManager.Instance.RestartLevel();
+#endif
     }
 }

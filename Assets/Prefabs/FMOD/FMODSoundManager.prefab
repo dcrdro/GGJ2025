@@ -47,10 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events: {fileID: 775693761}
   bankLoaderPrefab: {fileID: 8780825761072326730, guid: 9832e6c8d98af9f4d8e9c46f814aef68, type: 3}
-  masterVolume: 1
-  musicVolume: 1
-  ambienceVolume: 1
-  sfxVolume: 1
+  masterVolume: 0.7
+  musicVolume: 0.6
+  ambienceVolume: 0.6
+  sfxVolume: 0.6
 --- !u!114 &775693761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,13 +98,6 @@ MonoBehaviour:
       Data3: -553507649
       Data4: 1324015494
     Path: event:/Character/Respawn
-  intro:
-    Guid:
-      Data1: 441944166
-      Data2: 1158571042
-      Data3: 1194731937
-      Data4: -593664671
-    Path: event:/Cutscenes/Start Cutscene
   final:
     Guid:
       Data1: -1181954587
